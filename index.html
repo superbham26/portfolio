@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHUBHAM JAIN</title>
+    <title>Shubham Jain — Forward Deployed Engineer</title>
+    <meta name="description" content="Shubham Jain, Forward Deployed Engineer building production agentic AI and prescriptive ML for heavy manufacturing: supervisor-agent systems, digital twins, and forecasting with optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shubham Jain — Forward Deployed Engineer">
+    <meta property="og:description" content="Production agentic AI and prescriptive ML for heavy manufacturing, built on the plant floor with operators.">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff6b35'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%230a0a0a'%3ESJ%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -99,6 +105,35 @@
             width: 100%;
         }
 
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: var(--border);
+            background: var(--text);
+            color: var(--bg);
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 var(--accent);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        .expandable-card:focus-visible,
+        .project-card:focus-visible,
+        .nav-toggle:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--accent-2);
+            outline-offset: 4px;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -130,6 +165,16 @@
 
         .highlight-3 {
             background: var(--accent-3);
+        }
+
+        .hero-role {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-2);
+            margin-bottom: 1.5rem;
         }
 
         .hero-subtitle {
@@ -396,6 +441,48 @@
             color: var(--accent);
             font-weight: 700;
             font-size: 1.2rem;
+        }
+
+        /* Promotion timeline */
+        .role-block {
+            position: relative;
+            padding: 0 0 2rem 2rem;
+            border-left: 3px solid var(--text);
+        }
+
+        .role-block:last-child {
+            padding-bottom: 0;
+            border-left-color: transparent;
+        }
+
+        .role-block::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0.2rem;
+            width: 17px;
+            height: 17px;
+            background: var(--accent);
+            border: var(--border);
+        }
+
+        .role-block:first-child::before {
+            background: var(--accent-3);
+        }
+
+        .role-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .role-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: #666;
+            margin-left: 0.5rem;
         }
 
         /* Project Cards */
@@ -712,8 +799,48 @@
                 text-align: center;
             }
 
+            .nav-toggle {
+                display: block;
+            }
+
             nav ul {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--bg);
+                border-bottom: var(--border);
+                box-shadow: 0 4px 0 var(--text);
+            }
+
+            nav.open ul {
+                display: flex;
+            }
+
+            nav li a {
+                display: block;
+                padding: 1rem 1.5rem;
+                border-top: 1px solid rgba(0, 0, 0, 0.15);
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            section[id] {
+                scroll-margin-top: 75px;
+            }
+
+            .role-block {
+                padding-left: 1.5rem;
+            }
+
+            .role-date {
+                display: block;
+                margin: 0.3rem 0 0;
             }
 
             .section-number {
@@ -898,6 +1025,17 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -907,12 +1045,13 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">SHUBHAM<span>.</span>JAIN</div>
-                <nav>
+                <nav id="siteNav">
+                    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">☰</button>
                     <ul>
                         <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#education">Education</a></li>
-                        <li><a href="#projects">Projects</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -929,9 +1068,11 @@
                         JAIN<br>
                         <span class="highlight highlight-2">BUILDS</span> <span class="highlight highlight-3">SYSTEMS</span>
                     </h1>
+                    <p class="hero-role fade-in delay-1">Forward Deployed Engineer · Agentic AI &amp; Prescriptive ML for Manufacturing</p>
                     <p class="hero-subtitle fade-in delay-1">
-                        I turn raw data, sensor streams, and language models into systems people actually rely on — 
-                        predictive models, optimization engines, and AI agents that hold up in production, not just in notebooks.
+                        I embed with plant operators, scope the problem on the ground, and ship what they end up using every day —
+                        supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational
+                        data apps running inside a legacy alumina plant.
                     </p>
 
                     <div class="stats-header fade-in delay-2">
@@ -940,6 +1081,10 @@
 
                     <div class="stats-grid">
                         <div class="stat-box fade-in delay-2">
+                            <div class="stat-number" data-target="400">0</div>
+                            <div class="stat-label">Hrs/Year First-Time-Right Production Added</div>
+                        </div>
+                        <div class="stat-box fade-in delay-3">
                             <div class="stat-number" data-target="40">0</div>
                             <div class="stat-label">% Manual Processing Time Cut</div>
                         </div>
@@ -947,13 +1092,9 @@
                             <div class="stat-number" data-target="18">0</div>
                             <div class="stat-label">% Detection Accuracy Improved</div>
                         </div>
-                        <div class="stat-box fade-in delay-3">
+                        <div class="stat-box fade-in delay-4">
                             <div class="stat-number">₹5M+</div>
                             <div class="stat-label">Business Value Generated</div>
-                        </div>
-                        <div class="stat-box fade-in delay-4">
-                            <div class="stat-number" data-target="10">0</div>
-                            <div class="stat-label">% Energy Consumption Reduced</div>
                         </div>
                     </div>
 
@@ -973,12 +1114,12 @@
                 </div>
 
                 <div class="cards-grid">
-                    <div class="expandable-card" onclick="toggleCard(this)">
+                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="card-header">
                             <div class="card-meta">
                                 <div>
-                                    <h3 class="card-title">Assistant Manager</h3>
-                                    <div class="card-company">Aditya Birla Management Corporation</div>
+                                    <h3 class="card-title">Forward Deployed Engineer</h3>
+                                    <div class="card-company">Aditya Birla Management Corporation — Group Data &amp; Analytics</div>
                                 </div>
                                 <div class="card-date">
                                     JAN 2025 – PRESENT<br>
@@ -986,29 +1127,43 @@
                                 </div>
                             </div>
                             <p class="card-teaser">
-                                Built digital twins that predict plant failures before they happen, shipped a multi-agent AI system that routes its own queries, convinced AI to catch fraudsters better than humans, and somehow saved enough energy to power a small city.
+                                Moved into an alumina plant for weeks, gave it a digital twin and a supervisor agent that knows which tool to call, and now operators use it daily without thinking about it.
                             </p>
-                            <div class="expand-indicator">+</div>
+                            <div class="expand-indicator" aria-hidden="true">+</div>
                         </div>
                         <div class="card-details">
-                            <ul>
-                                <li>Architected and deployed a production multi-agent AI system orchestrating optimization engines, predictive models, RAG pipelines, and SQL query agents — using prompt engineering, retrieval grounding, and deterministic routing for explainable agent behavior, surfaced as a no-code stakeholder dashboard</li>
-                                <li>Led analytics layer for digital twin of calcination processes, integrating high-frequency sensor data with ML models for plant-wide decision support</li>
-                                <li>Built simulation-based what-if analysis evaluating production, quality, and energy trade-offs, improving first-time-right rates and reducing rework</li>
-                                <li>Designed, trained, and deployed an LLM-XGBoost hybrid model for insurance claims fraud detection end-to-end, managing the full ML lifecycle — driving 40% reduction in manual processing time and an 18% accuracy uplift</li>
-                                <li>Built a spatiotemporal ML model for early disease hotspot detection through extensive EDA and geospatial feature engineering, delivering multi-week risk forecasts that generated ₹5M+ in business value</li>
-                                <li>Architected optimization engine for cement manufacturing achieving 10% energy reduction through enhanced process control and material flow optimization</li>
-                                <li>Architected scalable data pipelines on Databricks optimized with PySpark, streaming high-frequency sensor data from 4+ manufacturing lines via OPC UA into a centralized PostgreSQL database, with CI workflows managed on Azure DevOps</li>
-                                <li>Developed interactive MIS dashboards (Power BI, Matplotlib) to communicate model performance to senior stakeholders, with thorough documentation of pipelines, model assumptions, and findings</li>
-                            </ul>
+                            <div class="role-block">
+                                <h4 class="role-title">Forward Deployed Engineer <span class="role-date">Jan 2026 – Present</span></h4>
+                                <ul>
+                                    <li>Embedded with plant operators for weeks at a legacy alumina plant to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end, fusing high-frequency sensor data with ML models for simulation-based optimization across production, quality, and energy trade-offs; operators now use it daily</li>
+                                    <li>Architected and deployed a supervisor-agent AI system with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase; replaced manual analyst intervention in plant decision workflows and adds 400 hours/year of first-time-right production</li>
+                                    <li>Designed and shipped a Databricks App (Streamlit/React) for plant teams to query process data conversationally, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages</li>
+                                    <li>Sole owner of the stakeholder chain from plant operator to CEO: translated operator needs into build requirements, reported outcomes and shortcomings to leadership, and owned adoption after go-live</li>
+                                </ul>
+                            </div>
+                            <div class="role-block">
+                                <h4 class="role-title">Management Trainee, Data Scientist <span class="role-date">Jul 2025 – Jan 2026</span></h4>
+                                <ul>
+                                    <li>Built a multi-horizon forecasting and prescriptive optimization engine for Specific Surface Area (SSA) in calcination, pairing LightGBM forecasts with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking to raise first-time-right (FTR)</li>
+                                    <li>Designed, trained, and deployed an LLM-SLM-XGBoost hybrid for insurance claims fraud detection end-to-end: 18% accuracy uplift and 40% reduction in manual processing time</li>
+                                    <li>Built a spatiotemporal ML model for early disease hotspot detection through geospatial/time-series feature engineering, delivering multi-week risk forecasts that generated ₹5M+ in business value</li>
+                                </ul>
+                            </div>
+                            <div class="role-block">
+                                <h4 class="role-title">Data &amp; Analytics Trainee <span class="role-date">Jan 2025 – Jun 2025</span></h4>
+                                <ul>
+                                    <li>Fine-tuned a small language model (SLM) on plant terminology and data structures for domain-specific operations queries, enabling lightweight, low-latency deployment</li>
+                                    <li>Built an OPC UA connector streaming live sensor data from 4+ manufacturing lines into PostgreSQL via Databricks/PySpark pipelines, with CI on Azure DevOps under MLOps best practices</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="expandable-card" onclick="toggleCard(this)">
+                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="card-header">
                             <div class="card-meta">
                                 <div>
-                                    <h3 class="card-title">Project Intern</h3>
+                                    <h3 class="card-title">Business Analyst Intern</h3>
                                     <div class="card-company">Fractal Analytics</div>
                                 </div>
                                 <div class="card-date">
@@ -1019,18 +1174,17 @@
                             <p class="card-teaser">
                                 Ran A/B tests until we found the golden cohort, then watched conversion rates climb 10%. Turned messy customer data into C-suite presentations that actually changed strategy.
                             </p>
-                            <div class="expand-indicator">+</div>
+                            <div class="expand-indicator" aria-hidden="true">+</div>
                         </div>
                         <div class="card-details">
                             <ul>
-                                <li>Partnered directly with client stakeholders to translate B2B campaign data into predictive models and clustering solutions, driving a 10% lift in lead conversion for a high-value cohort</li>
-                                <li>Designed and executed A/B tests to identify high-impact customer segments and optimize engagement strategies across multiple touchpoints</li>
-                                <li>Translated complex model outputs into executive-ready insights and dashboards, directly shaping go-to-market decisions for senior leadership</li>
+                                <li>Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort</li>
+                                <li>Designed and ran A/B tests to isolate high-impact customer segments and optimize engagement across multiple touchpoints</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="expandable-card" onclick="toggleCard(this)">
+                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="card-header">
                             <div class="card-meta">
                                 <div>
@@ -1045,7 +1199,7 @@
                             <p class="card-teaser">
                                 Beat the market by 15% using math and momentum. Optimized trading algorithms across 1,100 stocks while everyone else was still using spreadsheets. Turns out computers are pretty good at patterns.
                             </p>
-                            <div class="expand-indicator">+</div>
+                            <div class="expand-indicator" aria-hidden="true">+</div>
                         </div>
                         <div class="card-details">
                             <ul>
@@ -1058,26 +1212,177 @@
             </div>
         </section>
 
-        <section id="skills">
+        <section id="projects">
             <div class="container">
                 <div class="section-header">
                     <div class="section-number">02</div>
+                    <div class="section-title">Featured Work</div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Supervisor-Agent AI System</h3>
+                            <p class="project-teaser">
+                                A middle manager for AI agents, except it actually delegates well. Hears your question, decides if it's a job for RAG, Genie, or a model, and remembers you next time. Analysts got their afternoons back.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.
+                            </p>
+                            <div class="project-impact">Impact: +400 hrs/year first-time-right production</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Calcination Digital Twin</h3>
+                            <p class="project-teaser">
+                                Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant an evil twin. Plot twist: it's helpful. It tries every trade-off first so the real plant doesn't have to.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.
+                            </p>
+                            <div class="project-impact">Impact: Used daily by plant operators</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Conversational Plant Data App</h3>
+                            <p class="project-teaser">
+                                Plant data, but you can just talk to it. Operators ask in plain English, leadership gets its own view, and nobody has to pretend they understand the other's dashboard anymore.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.
+                            </p>
+                            <div class="project-impact">Impact: Self-serve process data for operators to leadership</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <h3 class="project-title">SSA Forecast &amp; Prescribe Engine</h3>
+                            <p class="project-teaser">
+                                Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult. Then it keeps a scorecard of prescription vs. actual, because trust is earned.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.
+                            </p>
+                            <div class="project-impact">Impact: Raised first-time-right (FTR) rates</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">05</div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Claims Engine</h3>
+                            <p class="project-teaser">
+                                Taught AI to read insurance claims like a skeptical detective. Big model reads, small model squints, XGBoost delivers the verdict. Fraudsters hate this one weird stack.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end-to-end — language models for document understanding feeding an XGBoost fraud classifier.
+                            </p>
+                            <div class="project-impact">Impact: 40% time reduction, 18% accuracy uplift</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">06</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Disease Hotspot Forecasting</h3>
+                            <p class="project-teaser">
+                                Built a crystal ball for disease outbreaks. Predicts hotspots weeks before they happen. Underwriters loved it. No actual magic involved, just spatiotemporal ML.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.
+                            </p>
+                            <div class="project-impact">Impact: Generated ₹5M+ in business value</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">07</div>
+                        <div class="project-content">
+                            <h3 class="project-title">NL2SQL Agent</h3>
+                            <p class="project-teaser">
+                                SQL is a love language most business teams don't speak. So I built an agent that translates. The judges were fluent enough to hand it the win.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.
+                            </p>
+                            <div class="project-impact">Achievement: GDNA Hackathon 2026 Winner</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
+                        <div class="project-number">08</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Quant Trading Platform</h3>
+                            <p class="project-teaser">
+                                Beat NIFTY50 by 15% with momentum strategies and optimization. Managed 1,100+ stocks systematically. Math beats gut feeling every time.
+                            </p>
+                            <div class="project-expand" aria-hidden="true">+</div>
+                        </div>
+                        <div class="project-details">
+                            <p class="project-description">
+                                Proprietary momentum-based trading algorithms with a systematic backtesting framework. Applied portfolio optimization techniques and risk management strategies to systematically outperform market benchmarks across a large equity universe.
+                            </p>
+                            <div class="project-impact">Impact: 15% vs NIFTY50 outperformance, 25% return improvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
                     <div class="section-title">Technical Stack</div>
                 </div>
 
                 <div class="skills-grid">
                     <div class="skill-category">
                         <div class="skill-header">
-                            <h3>Programming & Data</h3>
+                            <h3>GenAI &amp; Agentic AI</h3>
                         </div>
                         <div class="skill-items">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">PySpark</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">pandas</span>
-                            <span class="skill-tag">numpy</span>
-                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Supervisor/Multi-Agent Orchestration</span>
+                            <span class="skill-tag">Intent Classification &amp; Tool Routing</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Databricks Genie Spaces</span>
+                            <span class="skill-tag">Session/Long-Term Memory (Lakebase)</span>
+                            <span class="skill-tag">SLM Fine-Tuning</span>
+                            <span class="skill-tag">Prompt Engineering</span>
+                            <span class="skill-tag">LLM Evaluation</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">LangGraph</span>
+                            <span class="skill-tag">Semantic Search</span>
                         </div>
                     </div>
 
@@ -1086,55 +1391,60 @@
                             <h3>Machine Learning</h3>
                         </div>
                         <div class="skill-items">
-                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Multi-Horizon Forecasting</span>
+                            <span class="skill-tag">LightGBM</span>
                             <span class="skill-tag">XGBoost</span>
-                            <span class="skill-tag">Time Series</span>
-                            <span class="skill-tag">Forecasting</span>
+                            <span class="skill-tag">Spatiotemporal Modeling</span>
                             <span class="skill-tag">Feature Engineering</span>
-                            <span class="skill-tag">Deployment</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>GenAI & Agentic Systems</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Multi-Agent Orchestration</span>
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">RAG</span>
-                            <span class="skill-tag">Prompt Engineering</span>
-                            <span class="skill-tag">LLM Evaluation</span>
-                            <span class="skill-tag">Semantic Search</span>
-                            <span class="skill-tag">Responsible AI</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Analytics & Experimentation</h3>
-                        </div>
-                        <div class="skill-items">
+                            <span class="skill-tag">Causal Inference (DoubleML)</span>
+                            <span class="skill-tag">SHAP</span>
                             <span class="skill-tag">A/B Testing</span>
-                            <span class="skill-tag">Causal Inference</span>
-                            <span class="skill-tag">Exp Design</span>
-                            <span class="skill-tag">Optimization</span>
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">Champion/Challenger</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
                         <div class="skill-header">
-                            <h3>Tools & Platforms</h3>
+                            <h3>Optimization &amp; Simulation</h3>
+                        </div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Genetic Algorithms</span>
+                            <span class="skill-tag">Particle Swarm Optimization</span>
+                            <span class="skill-tag">Prescriptive Analytics</span>
+                            <span class="skill-tag">Digital Twins</span>
+                            <span class="skill-tag">Constraint Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <h3>Languages &amp; Data</h3>
+                        </div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">PySpark</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">OPC UA</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <h3>Platforms &amp; Delivery</h3>
                         </div>
                         <div class="skill-items">
                             <span class="skill-tag">Databricks</span>
-                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Databricks Apps (Streamlit/React)</span>
                             <span class="skill-tag">Azure DevOps</span>
                             <span class="skill-tag">Git</span>
+                            <span class="skill-tag">AWS</span>
                             <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Matplotlib</span>
-                            <span class="skill-tag">Seaborn</span>
-                            <span class="skill-tag">OPC UA</span>
                         </div>
                     </div>
                 </div>
@@ -1144,7 +1454,7 @@
         <section id="education">
             <div class="container">
                 <div class="section-header">
-                    <div class="section-number">03</div>
+                    <div class="section-number">04</div>
                     <div class="section-title">Education & Certifications</div>
                 </div>
 
@@ -1166,140 +1476,11 @@
                             <h3>Certifications & Achievements</h3>
                         </div>
                         <div class="skill-items">
+                            <span class="skill-tag">Databricks GenAI Engineer Associate (2026)</span>
                             <span class="skill-tag">Databricks ML Associate</span>
-                            <span class="skill-tag">Toastmasters Speechcrafter</span>
+                            <span class="skill-tag">GDNA Hackathon 2026 Winner</span>
                             <span class="skill-tag">VMart Scholarship — Top 1%</span>
-                            <span class="skill-tag">HackPlaksha 2023 Winner</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-number">04</div>
-                    <div class="section-title">Featured Work</div>
-                </div>
-
-                <div class="projects-grid">
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">01</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Multi-Agent AI System</h3>
-                            <p class="project-teaser">
-                                Built a team of AI agents that know when to call an optimizer, when to query SQL, and when to just answer. No-code dashboard on top, deterministic routing underneath.
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Production multi-agent AI system orchestrating across optimization engines, predictive models, RAG pipelines, and SQL query agents. Implements prompt engineering, retrieval grounding, and deterministic routing for controlled, explainable agent behavior, surfaced as a no-code stakeholder dashboard.
-                            </p>
-                            <div class="project-impact">Impact: Eliminated need for manual analytical intervention</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">02</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Digital Twin System</h3>
-                            <p class="project-teaser">
-                                Gave a specialty alumina plant a brain. Now it predicts problems before engineers notice them and runs what-if scenarios faster than you can say "calcination."
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Comprehensive digital twin integrating high-frequency sensor data with ML models for plant-wide decision support in calcination processes. Built simulation-based what-if analysis capabilities to evaluate production, quality, and energy trade-offs in real-time.
-                            </p>
-                            <div class="project-impact">Impact: Improved first-time-right manufacturing rates</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">03</div>
-                        <div class="project-content">
-                            <h3 class="project-title">AI Claims Engine</h3>
-                            <p class="project-teaser">
-                                Taught AI to read insurance claims like a skeptical detective. Cut processing time in half and caught 18% more fraud. Fraudsters hate this one weird trick (it's XGBoost).
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Designed, trained, and deployed an LLM-XGBoost hybrid model for insurance claims fraud detection end-to-end, owning the full ML lifecycle from feature engineering through evaluation and deployment. Combines large language models for document understanding with XGBoost for fraud classification.
-                            </p>
-                            <div class="project-impact">Impact: 40% time reduction, 18% accuracy uplift</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">04</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Disease Forecasting</h3>
-                            <p class="project-teaser">
-                                Built a crystal ball for disease outbreaks. Predicts hotspots weeks before they happen. Underwriters loved it. Generated ₹5M. No actual magic involved, just spatiotemporal ML.
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Spatiotemporal ML model for early disease hotspot detection, built through extensive EDA and feature engineering on geospatial and time-series data. Delivers multi-week risk forecasts combining epidemiological, environmental, and demographic factors to enable proactive policy underwriting.
-                            </p>
-                            <div class="project-impact">Impact: Generated ₹5M+ in business value</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">05</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Energy Optimizer</h3>
-                            <p class="project-teaser">
-                                Made a cement plant 10% more energy efficient through math. Basically convinced machines to work smarter, not harder. The planet approves.
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Architected and deployed an optimization engine for cement manufacturing lines using advanced mathematical programming and ML. Enhanced process control and material flow optimization through real-time constraint solving and predictive modeling.
-                            </p>
-                            <div class="project-impact">Impact: 10% reduction in energy consumption</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">06</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Empathy Analytics</h3>
-                            <p class="project-teaser">
-                                Built AI that reads facial expressions and vocal tones in Zoom meetings. Won a hackathon. Turns out people really want to know if their meetings are boring.
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Dashboard that "reads the room" for remote team meetings using computer vision and NLP. Tracks facial expressions, vocal tone, and participation patterns to provide real-time sentiment analysis and engagement metrics to meeting facilitators.
-                            </p>
-                            <div class="project-impact">Achievement: Won HackPlaksha 2023</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" onclick="toggleCard(this)">
-                        <div class="project-number">07</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Quant Trading Platform</h3>
-                            <p class="project-teaser">
-                                Beat NIFTY50 by 15% with momentum strategies and optimization. Managed 1,100+ stocks systematically. Math beats gut feeling every time.
-                            </p>
-                            <div class="project-expand">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Proprietary momentum-based trading algorithms with a systematic backtesting framework. Applied portfolio optimization techniques and risk management strategies to systematically outperform market benchmarks across a large equity universe.
-                            </p>
-                            <div class="project-impact">Impact: 15% vs NIFTY50 outperformance, 25% return improvement</div>
+                            <span class="skill-tag">Toastmasters Speechcrafter (2025)</span>
                         </div>
                     </div>
                 </div>
@@ -1320,11 +1501,7 @@
                             <div class="contact-label">Email</div>
                             <div class="contact-value">shubhamajay2@gmail.com</div>
                         </a>
-                        <a href="tel:+917096211133" class="contact-item">
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value">+91 7096211133</div>
-                        </a>
-                        <a href="https://linkedin.com/in/shubham-jain" target="_blank" class="contact-item">
+                        <a href="https://www.linkedin.com/in/shubham-jain26" target="_blank" class="contact-item">
                             <div class="contact-label">LinkedIn</div>
                             <div class="contact-value">Connect</div>
                         </a>
@@ -1340,25 +1517,53 @@
 
     <footer>
         <div class="container">
-            <div class="footer-text">© 2025 SHUBHAM JAIN</div>
+            <div class="footer-text">© <span id="year">2026</span> SHUBHAM JAIN</div>
         </div>
     </footer>
 
     <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Toggle expandable cards
+        const cards = document.querySelectorAll('.expandable-card, .project-card');
+
         function toggleCard(card) {
-            const isExpanded = card.classList.contains('expanded');
-            
             // Close all other cards
-            document.querySelectorAll('.expandable-card, .project-card').forEach(c => {
+            cards.forEach(c => {
                 if (c !== card) {
                     c.classList.remove('expanded');
+                    c.setAttribute('aria-expanded', 'false');
                 }
             });
-            
+
             // Toggle current card
-            card.classList.toggle('expanded');
+            const expanded = card.classList.toggle('expanded');
+            card.setAttribute('aria-expanded', expanded);
         }
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => toggleCard(card));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(card);
+                }
+            });
+        });
+
+        // Mobile nav
+        const nav = document.getElementById('siteNav');
+        const navToggle = document.getElementById('navToggle');
+
+        function setNav(open) {
+            nav.classList.toggle('open', open);
+            navToggle.setAttribute('aria-expanded', open);
+            navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            navToggle.textContent = open ? '✕' : '☰';
+        }
+
+        navToggle.addEventListener('click', () => setNav(!nav.classList.contains('open')));
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
 
         // Scroll Progress Bar
         window.addEventListener('scroll', () => {
@@ -1401,23 +1606,14 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-            observer.observe(el);
-        });
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+            if (reduceMotion) {
+                el.textContent = el.getAttribute('data-target');
+            } else {
+                observer.observe(el);
+            }
         });
     </script>
 </body>
