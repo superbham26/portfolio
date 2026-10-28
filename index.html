@@ -15,13 +15,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script src="js/init.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
     <div class="nav-inner">
-        <a class="brand" href="#top" id="brand"></a>
+        <a class="brand" href="#top" id="brand">SJ</a>
         <nav aria-label="Primary">
             <ul id="navLinks">
                 <li><a href="#work">Work</a></li>
@@ -41,19 +42,26 @@
     <!-- Story intro -->
     <section class="hero" id="top">
         <div class="wrap">
-            <p class="eyebrow" id="heroEyebrow"></p>
+            <p class="eyebrow" id="heroEyebrow">Shubham Jain · Forward Deployed Engineer</p>
             <h1 class="reveal">Builds systems<br>people use every day.</h1>
-            <p class="tagline reveal" id="heroTagline"></p>
-            <p class="pitch reveal" id="heroPitch"></p>
+            <p class="tagline reveal" id="heroTagline">Agentic AI &amp; prescriptive ML for manufacturing.</p>
+            <p class="pitch reveal" id="heroPitch">I embed with plant operators, scope the problem on the ground, and ship what they end up using every day: supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational data apps running inside a legacy alumina plant.</p>
             <div class="actions center reveal">
                 <a class="btn" href="#contact">Let's talk</a>
-                <a class="link" id="cvLink" download="Shubham_Jain_Resume.pdf">Download CV ›</a>
+                <a class="link" id="cvLink" href="resume.pdf" download="Shubham_Jain_Resume.pdf">Download CV ›</a>
             </div>
         </div>
     </section>
 
     <section class="stats alt" aria-label="Impact by the numbers">
-        <div class="wrap"><div class="stats-grid" id="stats"></div></div>
+        <div class="wrap">
+            <div class="stats-grid" id="stats">
+                <div class="stat reveal"><div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div><p>hrs/year of first-time-right production</p></div>
+                <div class="stat reveal"><div class="fig g2"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div><p>less manual processing time</p></div>
+                <div class="stat reveal"><div class="fig g3"><span aria-hidden="true" data-count="18" data-pre="+" data-suf="%">+18%</span><span class="sr-only">+18%</span></div><p>detection accuracy</p></div>
+                <div class="stat reveal"><div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div><p>business value generated</p></div>
+            </div>
+        </div>
     </section>
 
     <section id="work">
@@ -61,7 +69,48 @@
             <h2 class="section-title reveal">Selected work.</h2>
             <p class="section-sub reveal">Systems shipped to production, measured by what changed on the ground.</p>
         </div>
-        <div id="bands"></div>
+        <div id="bands">
+            <article class="band on-dark">
+                <div class="wrap">
+                    <p class="kicker reveal">Agentic AI</p>
+                    <h3 class="reveal">Supervisor-Agent AI System</h3>
+                    <p class="summary reveal">One agent that routes every plant question to the right tool, and remembers the answer.</p>
+                    <div class="reveal"><div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div><p class="fig-label">hours/year of first-time-right production</p></div>
+                    <div class="tags reveal"><span class="tag">RAG</span><span class="tag">Vector Search</span><span class="tag">Genie Spaces</span><span class="tag">Lakebase memory</span></div>
+                    <button class="link" type="button" data-open="project:0" aria-haspopup="dialog">Learn more ›</button>
+                </div>
+            </article>
+            <article class="band alt">
+                <div class="wrap">
+                    <p class="kicker reveal">Simulation &amp; optimization</p>
+                    <h3 class="reveal">Calcination Digital Twin</h3>
+                    <p class="summary reveal">A virtual calciner that tries every trade-off first, so the real plant doesn't have to.</p>
+                    <div class="reveal"><div class="fig g2">Daily</div><p class="fig-label">used by plant operators</p></div>
+                    <div class="tags reveal"><span class="tag">Sensor fusion</span><span class="tag">ML models</span><span class="tag">Simulation</span><span class="tag">Multi-objective</span></div>
+                    <button class="link" type="button" data-open="project:1" aria-haspopup="dialog">Learn more ›</button>
+                </div>
+            </article>
+            <article class="band on-dark">
+                <div class="wrap">
+                    <p class="kicker reveal">Fraud detection</p>
+                    <h3 class="reveal">AI Claims Engine</h3>
+                    <p class="summary reveal">Flags suspicious insurance claims before an investigator has to dig.</p>
+                    <div class="reveal"><div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div><p class="fig-label">less manual processing · 18% accuracy uplift</p></div>
+                    <div class="tags reveal"><span class="tag">Fraud detection</span><span class="tag">Document understanding</span><span class="tag">End-to-end deployment</span></div>
+                    <button class="link" type="button" data-open="project:2" aria-haspopup="dialog">Learn more ›</button>
+                </div>
+            </article>
+            <article class="band alt">
+                <div class="wrap">
+                    <p class="kicker reveal">Spatiotemporal ML</p>
+                    <h3 class="reveal">Disease Hotspot Forecasting</h3>
+                    <p class="summary reveal">Multi-week risk forecasts that flag outbreaks before they happen.</p>
+                    <div class="reveal"><div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div><p class="fig-label">business value generated</p></div>
+                    <div class="tags reveal"><span class="tag">Geospatial</span><span class="tag">Time series</span><span class="tag">Feature engineering</span></div>
+                    <button class="link" type="button" data-open="project:3" aria-haspopup="dialog">Learn more ›</button>
+                </div>
+            </article>
+        </div>
     </section>
 
     <!-- Bento body -->
@@ -70,13 +119,218 @@
             <h2 class="section-title reveal" id="aboutTitle">At a glance.</h2>
             <p class="section-sub reveal">More projects, where I've worked, and what I work with. Tap any tile for details.</p>
         </div>
-        <div class="bento" id="bento"></div>
+        <div class="bento" id="bento">
+                <article class="tile openable reveal">
+                    <p class="kicker">Databricks App</p>
+                    <h3>Conversational Plant Data App</h3>
+                    <div class="grow"><div class="fig g2">Self-serve</div><p class="fig-label">process data, operator to leadership</p></div>
+                    <button class="tile-open" type="button" data-open="project:4" aria-label="Open details: Conversational Plant Data App" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Forecasting &amp; optimization</p>
+                    <h3>SSA Forecast &amp; Prescribe Engine</h3>
+                    <div class="grow"><div class="fig g1">↑ FTR</div><p class="fig-label">raised first-time-right rates</p></div>
+                    <button class="tile-open" type="button" data-open="project:5" aria-label="Open details: SSA Forecast &amp; Prescribe Engine" aria-haspopup="dialog">+</button>
+                </article>
+            <article class="tile openable xp w2 h2 reveal">
+                <p class="kicker">Experience</p>
+                <h3>Embedded where the work happens.</h3>
+                <div class="path" aria-label="Career path"><span>Trainee</span><i aria-hidden='true'>→</i><span>Data Scientist</span><i aria-hidden='true'>→</i><span>FDE</span></div>
+                <ul class="xp-list grow">
+                    <li><div><b>Aditya Birla Management Corporation</b><span>Forward Deployed Engineer</span></div><span>Jan 2025 – Present</span></li><li><div><b>Fractal Analytics</b><span>Business Analyst Intern</span></div><span>May 2024 – Jul 2024</span></li><li><div><b>Subhkam Ventures</b><span>Quant Analyst Intern</span></div><span>Jun 2023 – Jul 2023</span></li>
+                </ul>
+                <button class="tile-open" type="button" data-open="experience" aria-label="Open full experience timeline" aria-haspopup="dialog">+</button>
+            </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Agentic AI</p>
+                    <h3>NL2SQL Agent</h3>
+                    <div class="grow"><div class="fig g4">1st</div><p class="fig-label">GDNA Hackathon 2026 winner</p></div>
+                    <button class="tile-open" type="button" data-open="project:6" aria-label="Open details: NL2SQL Agent" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Quant research</p>
+                    <h3>Quant Trading Platform</h3>
+                    <div class="grow"><div class="fig g3"><span aria-hidden="true" data-count="15" data-pre="+" data-suf="%">+15%</span><span class="sr-only">+15%</span></div><p class="fig-label">vs NIFTY50 · 25% return improvement</p></div>
+                    <button class="tile-open" type="button" data-open="project:7" aria-label="Open details: Quant Trading Platform" aria-haspopup="dialog">+</button>
+                </article>
+            <article class="tile openable w2 reveal" id="stack">
+                <p class="kicker">Stack</p>
+                <h3>Agents, forecasting and optimization, shipped on Databricks.</h3>
+                <div class="chips"><span class="chip">Multi-Agent Orchestration</span><span class="chip">RAG</span><span class="chip">LangGraph</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">DoubleML</span><span class="chip">GA / PSO</span><span class="chip">Digital Twins</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">Azure DevOps</span></div>
+                <button class="tile-open" type="button" data-open="skills" aria-label="Open full tech stack" aria-haspopup="dialog">+</button>
+            </article>
+            <article class="tile edu reveal">
+                <p class="kicker">Education · 2021 – 2025</p>
+                <h3>B.Tech, Data Science, Economics &amp; Business</h3>
+                <p class="muted">Plaksha University</p>
+                <div class="grow fig g2">9.0<span class="unit"> / 10 CGPA</span></div>
+            </article>
+            <article class="tile reveal">
+                <p class="kicker">Certifications</p>
+                <ul class="certs"><li>Databricks GenAI Engineer Associate (2026)</li><li>Databricks ML Associate</li><li>GDNA Hackathon 2026 Winner</li><li>VMart Scholarship — Top 1%</li><li>Toastmasters Speechcrafter (2025)</li></ul>
+            </article>
+            <section class="tile contact on-dark w4 reveal" id="contact" aria-labelledby="contactTitle">
+                <div>
+                    <p class="status">Open to opportunities</p>
+                    <h2 id="contactTitle">Let's build something real.</h2>
+                    <p>Interested in roles where I can solve complex business challenges and create measurable impact.</p>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="mailto:shubhamajay2@gmail.com">Email me</a>
+                    <a class="link" href="https://www.linkedin.com/in/shubham-jain26" target="_blank" rel="noopener noreferrer">LinkedIn ›</a>
+                    <a class="link" href="resume.pdf" download="Shubham_Jain_Resume.pdf">Résumé ›</a>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- Detail content: shown in the sheet with JS, listed in full without it -->
+    <section class="details wrap" aria-label="Details">
+        <article class="sheet-body" data-detail="project:0">
+            <p class="kicker">Agentic AI</p>
+            <h2>Supervisor-Agent AI System</h2>
+            <div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div>
+            <p class="fig-label">hours/year of first-time-right production</p>
+            <p class="lead">One agent that routes every plant question to the right tool, and remembers the answer.</p>
+            <div class="sheet-section"><p>Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.</p></div>
+            <p class="plain">A middle manager for AI agents, except it actually delegates well. Analysts got their afternoons back.</p>
+            <div class="chips"><span class="chip">RAG</span><span class="chip">Vector Search</span><span class="chip">Genie Spaces</span><span class="chip">Lakebase memory</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:1">
+            <p class="kicker">Simulation &amp; optimization</p>
+            <h2>Calcination Digital Twin</h2>
+            <div class="fig g2">Daily</div>
+            <p class="fig-label">used by plant operators</p>
+            <p class="lead">A virtual calciner that tries every trade-off first, so the real plant doesn't have to.</p>
+            <div class="sheet-section"><p>Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.</p></div>
+            <p class="plain">Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant a helpful twin.</p>
+            <div class="chips"><span class="chip">Sensor fusion</span><span class="chip">ML models</span><span class="chip">Simulation</span><span class="chip">Multi-objective</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:2">
+            <p class="kicker">Fraud detection</p>
+            <h2>AI Claims Engine</h2>
+            <div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div>
+            <p class="fig-label">less manual processing · 18% accuracy uplift</p>
+            <p class="lead">Flags suspicious insurance claims before an investigator has to dig.</p>
+            <div class="sheet-section"><p>LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end to end. Language models handle document understanding and feed an XGBoost fraud classifier.</p></div>
+            <p class="plain">Taught AI to read insurance claims like a skeptical detective.</p>
+            <div class="chips"><span class="chip">Fraud detection</span><span class="chip">Document understanding</span><span class="chip">End-to-end deployment</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:3">
+            <p class="kicker">Spatiotemporal ML</p>
+            <h2>Disease Hotspot Forecasting</h2>
+            <div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div>
+            <p class="fig-label">business value generated</p>
+            <p class="lead">Multi-week risk forecasts that flag outbreaks before they happen.</p>
+            <div class="sheet-section"><p>Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.</p></div>
+            <p class="plain">A crystal ball for disease outbreaks. No magic involved, just spatiotemporal ML.</p>
+            <div class="chips"><span class="chip">Geospatial</span><span class="chip">Time series</span><span class="chip">Feature engineering</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:4">
+            <p class="kicker">Databricks App</p>
+            <h2>Conversational Plant Data App</h2>
+            <div class="fig g2">Self-serve</div>
+            <p class="fig-label">process data, operator to leadership</p>
+            <p class="lead">Operators ask in plain English; leadership gets its own view.</p>
+            <div class="sheet-section"><p>Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.</p></div>
+            <p class="plain">Plant data, but you can just talk to it. Nobody has to pretend they understand the other's dashboard anymore.</p>
+            <div class="chips"><span class="chip">Databricks Apps</span><span class="chip">Streamlit</span><span class="chip">React</span><span class="chip">KPI hierarchy</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:5">
+            <p class="kicker">Forecasting &amp; optimization</p>
+            <h2>SSA Forecast &amp; Prescribe Engine</h2>
+            <div class="fig g1">↑ FTR</div>
+            <p class="fig-label">raised first-time-right rates</p>
+            <p class="lead">Forecasts, evolutionary search and causal ML, with a prescription-vs-actual scorecard.</p>
+            <div class="sheet-section"><p>Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.</p></div>
+            <p class="plain">Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult.</p>
+            <div class="chips"><span class="chip">LightGBM</span><span class="chip">GA / PSO</span><span class="chip">DoubleML</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:6">
+            <p class="kicker">Agentic AI</p>
+            <h2>NL2SQL Agent</h2>
+            <div class="fig g4">1st</div>
+            <p class="fig-label">GDNA Hackathon 2026 winner</p>
+            <p class="lead">Business teams query data conversationally, without SQL.</p>
+            <div class="sheet-section"><p>Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.</p></div>
+            <p class="plain">SQL is a love language most business teams don't speak. So I built an agent that translates.</p>
+            <div class="chips"><span class="chip">LLM agent</span><span class="chip">SQL</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:7">
+            <p class="kicker">Quant research</p>
+            <h2>Quant Trading Platform</h2>
+            <div class="fig g3"><span aria-hidden="true" data-count="15" data-pre="+" data-suf="%">+15%</span><span class="sr-only">+15%</span></div>
+            <p class="fig-label">vs NIFTY50 · 25% return improvement</p>
+            <p class="lead">Momentum strategies across 1,100+ equities.</p>
+            <div class="sheet-section"><p>Proprietary momentum-based trading algorithms with a systematic backtesting framework, plus portfolio optimization and risk management across a large equity universe.</p></div>
+            <p class="plain">Math beats gut feeling every time.</p>
+            <div class="chips"><span class="chip">Momentum</span><span class="chip">Backtesting</span><span class="chip">Portfolio optimization</span></div>
+        </article>
+        <article class="sheet-body" data-detail="experience">
+            <p class="kicker">Experience</p>
+            <h2>Where I've worked.</h2>
+                <div class="sheet-section">
+                    <h3>Aditya Birla Management Corporation</h3>
+                    <p class="meta">Group Data &amp; Analytics · Bengaluru · Jan 2025 – Present</p>
+                        <div class="role">
+                            <h4>Forward Deployed Engineer <span>· Jan 2026 – Present</span></h4>
+                            <ul><li>Embedded with plant operators for weeks to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end across production, quality, and energy trade-offs; operators now use it daily.</li><li>Architected and deployed a supervisor-agent system with intent classification and tool routing across RAG, Genie Spaces, and model endpoints, with session and long-term memory on Lakebase; adds 400 hours/year of first-time-right production.</li><li>Shipped a Databricks App for conversational querying of process data with role-based views, a KPI hierarchy, optimization prescriptions, alerting, and data-quality pages.</li><li>Sole owner of the stakeholder chain from plant operator to CEO, including adoption after go-live.</li></ul>
+                        </div>
+                        <div class="role">
+                            <h4>Management Trainee, Data Scientist <span>· Jul 2025 – Jan 2026</span></h4>
+                            <ul><li>Built a multi-horizon forecasting and prescriptive optimization engine for SSA in calcination (LightGBM + GA/PSO + DoubleML) with prescription-vs-actual tracking.</li><li>Shipped an LLM-SLM-XGBoost hybrid for claims fraud detection: 18% accuracy uplift, 40% less manual processing time.</li><li>Built a spatiotemporal disease-hotspot model delivering multi-week risk forecasts worth ₹5M+ in business value.</li></ul>
+                        </div>
+                        <div class="role">
+                            <h4>Data &amp; Analytics Trainee <span>· Jan 2025 – Jun 2025</span></h4>
+                            <ul><li>Fine-tuned a small language model on plant terminology for low-latency, domain-specific operations queries.</li><li>Built an OPC UA connector streaming live sensor data from 4+ lines into PostgreSQL via Databricks/PySpark, with CI on Azure DevOps.</li></ul>
+                        </div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Fractal Analytics</h3>
+                    <p class="meta">Bengaluru · May 2024 – Jul 2024</p>
+                        <div class="role">
+                            <h4>Business Analyst Intern</h4>
+                            <ul><li>Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort.</li><li>Designed and ran A/B tests to isolate high-impact customer segments across multiple touchpoints.</li></ul>
+                        </div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Subhkam Ventures</h3>
+                    <p class="meta">Mumbai · Jun 2023 – Jul 2023</p>
+                        <div class="role">
+                            <h4>Quant Analyst Intern</h4>
+                            <ul><li>Formulated quantitative strategies using moving averages and momentum indicators, achieving 15% outperformance against NIFTY50.</li><li>Deployed optimization models that raised returns by 25% on a diversified portfolio of 1,100+ cash stocks.</li></ul>
+                        </div>
+                </div>
+        </article>
+        <article class="sheet-body" data-detail="skills">
+            <p class="kicker">Stack</p>
+            <h2>Full tech stack.</h2>
+                <div class="sheet-section">
+                    <h3>GenAI &amp; Agentic AI</h3>
+                    <div class="chips"><span class="chip">Supervisor/Multi-Agent Orchestration</span><span class="chip">Intent Classification &amp; Tool Routing</span><span class="chip">RAG</span><span class="chip">Databricks Genie Spaces</span><span class="chip">Session/Long-Term Memory (Lakebase)</span><span class="chip">SLM Fine-Tuning</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Semantic Search</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Machine Learning</h3>
+                    <div class="chips"><span class="chip">Multi-Horizon Forecasting</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">Spatiotemporal Modeling</span><span class="chip">Feature Engineering</span><span class="chip">Causal Inference (DoubleML)</span><span class="chip">SHAP</span><span class="chip">A/B Testing</span><span class="chip">MLflow</span><span class="chip">Champion/Challenger</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Optimization &amp; Simulation</h3>
+                    <div class="chips"><span class="chip">Genetic Algorithms</span><span class="chip">Particle Swarm Optimization</span><span class="chip">Prescriptive Analytics</span><span class="chip">Digital Twins</span><span class="chip">Constraint Optimization</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Languages &amp; Data</h3>
+                    <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">PyTorch</span><span class="chip">SQL</span><span class="chip">PySpark</span><span class="chip">PostgreSQL</span><span class="chip">OPC UA</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Platforms &amp; Delivery</h3>
+                    <div class="chips"><span class="chip">Databricks</span><span class="chip">Databricks Apps (Streamlit/React)</span><span class="chip">Azure DevOps</span><span class="chip">Git</span><span class="chip">AWS</span><span class="chip">Power BI</span></div>
+                </div>
+        </article>
     </section>
 </main>
 
 <footer>
     <div class="wrap">
-        <span id="copyright"></span>
+        <span>© <span id="year">2026</span> Shubham Jain</span>
     </div>
 </footer>
 
