@@ -1,1620 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Jain — Forward Deployed Engineer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Shubham Jain — Forward Deployed Engineer</title>
     <meta name="description" content="Shubham Jain, Forward Deployed Engineer building production agentic AI and prescriptive ML for heavy manufacturing: supervisor-agent systems, digital twins, and forecasting with optimization.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Shubham Jain — Forward Deployed Engineer">
     <meta property="og:description" content="Production agentic AI and prescriptive ML for heavy manufacturing, built on the plant floor with operators.">
     <meta name="twitter:card" content="summary">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff6b35'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%230a0a0a'%3ESJ%3C/text%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #f5f5f0;
-            --text: #0a0a0a;
-            --accent: #ff6b35;
-            --accent-2: #004e89;
-            --accent-3: #1a936f;
-            --border: 2px solid var(--text);
-            --shadow: 8px 8px 0 var(--text);
-        }
-
-        body {
-            font-family: 'Archivo', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--bg);
-            border-bottom: var(--border);
-            z-index: 1000;
-            padding: 1.2rem 0;
-            box-shadow: 0 4px 0 var(--text);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 900;
-            font-size: 1.4rem;
-            letter-spacing: -0.02em;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            position: relative;
-            transition: all 0.2s;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border: var(--border);
-            background: var(--text);
-            color: var(--bg);
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 3px 3px 0 var(--accent);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        section[id] {
-            scroll-margin-top: 90px;
-        }
-
-        .expandable-card:focus-visible,
-        .project-card:focus-visible,
-        .nav-toggle:focus-visible,
-        a:focus-visible {
-            outline: 3px solid var(--accent-2);
-            outline-offset: 4px;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3.5rem, 10vw, 9rem);
-            font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-            margin-bottom: 2rem;
-        }
-
-        .highlight {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.1em 0.3em;
-            transform: skew(-3deg);
-            box-shadow: 6px 6px 0 var(--text);
-        }
-
-        .highlight-2 {
-            background: var(--accent-2);
-        }
-
-        .highlight-3 {
-            background: var(--accent-3);
-        }
-
-        .hero-role {
-            font-family: 'Space Mono', monospace;
-            font-size: clamp(0.85rem, 1.6vw, 1.05rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-2);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            font-weight: 400;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            color: #333;
-        }
-
-        .stats-header {
-            margin-bottom: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stats-header h3 {
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent-2);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .stats-header h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-box {
-            border: var(--border);
-            padding: 1.8rem 1.5rem;
-            background: var(--bg);
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .stat-box:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 var(--text);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-family: 'Space Mono', monospace;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            font-family: 'Archivo', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border: var(--border);
-            background: var(--text);
-            color: var(--bg);
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 6px 6px 0 var(--accent);
-            position: relative;
-        }
-
-        .btn:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 9px 9px 0 var(--accent);
-        }
-
-        .btn-secondary {
-            background: var(--bg);
-            color: var(--text);
-            box-shadow: 6px 6px 0 var(--accent-2);
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 9px 9px 0 var(--accent-2);
-        }
-
-        /* Section */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-number {
-            font-size: 6rem;
-            font-weight: 900;
-            font-family: 'Space Mono', monospace;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: -1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        /* Expandable Cards */
-        .cards-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .expandable-card {
-            border: var(--border);
-            background: var(--bg);
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: all 0.3s;
-            overflow: hidden;
-        }
-
-        .expandable-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 var(--text);
-        }
-
-        .expandable-card.expanded {
-            box-shadow: 8px 8px 0 var(--accent);
-        }
-
-        .card-header {
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, transparent 100%);
-            position: relative;
-            user-select: none;
-        }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        .card-company {
-            font-size: 1.2rem;
-            color: var(--accent-2);
-            font-weight: 700;
-            margin-top: 0.3rem;
-        }
-
-        .card-date {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: #666;
-            white-space: nowrap;
-            text-align: right;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .card-teaser {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #333;
-            margin-top: 1rem;
-        }
-
-        .expand-indicator {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 2rem;
-            width: 40px;
-            height: 40px;
-            border: var(--border);
-            background: var(--text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--bg);
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-
-        .expandable-card:hover .expand-indicator {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .expandable-card.expanded .expand-indicator {
-            transform: rotate(45deg);
-            background: var(--accent);
-        }
-
-        .card-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.3s;
-            padding: 0 2rem;
-            background: rgba(0, 0, 0, 0.02);
-        }
-
-        .expandable-card.expanded .card-details {
-            max-height: 2000px;
-            padding: 2rem;
-            border-top: var(--border);
-        }
-
-        .card-details ul {
-            list-style: none;
-        }
-
-        .card-details li {
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            line-height: 1.7;
-            color: #222;
-        }
-
-        .card-details li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* Promotion timeline */
-        .role-block {
-            position: relative;
-            padding: 0 0 2rem 2rem;
-            border-left: 3px solid var(--text);
-        }
-
-        .role-block:last-child {
-            padding-bottom: 0;
-            border-left-color: transparent;
-        }
-
-        .role-block::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 0.2rem;
-            width: 17px;
-            height: 17px;
-            background: var(--accent);
-            border: var(--border);
-        }
-
-        .role-block:first-child::before {
-            background: var(--accent-3);
-        }
-
-        .role-title {
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .role-date {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: #666;
-            margin-left: 0.5rem;
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            border: var(--border);
-            background: var(--bg);
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 var(--text);
-        }
-
-        .project-card.expanded {
-            box-shadow: 8px 8px 0 var(--accent-3);
-        }
-
-        .project-number {
-            background: var(--text);
-            color: var(--bg);
-            padding: 1rem;
-            font-size: 2.5rem;
-            font-weight: 900;
-            font-family: 'Space Mono', monospace;
-            text-align: center;
-        }
-
-        .project-content {
-            padding: 2rem;
-            position: relative;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .project-teaser {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .project-expand {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 2rem;
-            width: 35px;
-            height: 35px;
-            border: var(--border);
-            background: var(--text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--bg);
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover .project-expand {
-            background: var(--accent-3);
-            transform: scale(1.1);
-        }
-
-        .project-card.expanded .project-expand {
-            transform: rotate(45deg);
-            background: var(--accent-3);
-        }
-
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.3s;
-            padding: 0 2rem;
-        }
-
-        .project-card.expanded .project-details {
-            max-height: 800px;
-            padding: 0 2rem 2rem 2rem;
-        }
-
-        .project-description {
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            color: #222;
-        }
-
-        .project-impact {
-            padding: 1rem;
-            background: var(--accent-3);
-            color: var(--bg);
-            font-weight: 700;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            border: var(--border);
-            background: var(--bg);
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 var(--text);
-        }
-
-        .skill-header {
-            background: var(--text);
-            color: var(--bg);
-            padding: 1.5rem;
-        }
-
-        .skill-header h3 {
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .skill-items {
-            padding: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-tag {
-            padding: 0.6rem 1rem;
-            background: var(--bg);
-            border: var(--border);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s;
-            font-family: 'Space Mono', monospace;
-            box-shadow: 3px 3px 0 var(--text);
-        }
-
-        .skill-tag:hover {
-            background: var(--accent);
-            color: var(--bg);
-            transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0 var(--text);
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--text);
-            color: var(--bg);
-            padding: 6rem 4rem;
-            border: var(--border);
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            line-height: 1.1;
-            word-wrap: break-word;
-            hyphens: none;
-        }
-
-        .contact-text {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            color: #ccc;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-item {
-            border: 2px solid var(--bg);
-            background: var(--text);
-            padding: 1.5rem;
-            text-decoration: none;
-            color: var(--bg);
-            transition: all 0.3s;
-            box-shadow: 5px 5px 0 var(--bg);
-        }
-
-        .contact-item:hover {
-            background: var(--accent);
-            transform: translate(-3px, -3px);
-            box-shadow: 8px 8px 0 var(--bg);
-        }
-
-        .contact-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #999;
-        }
-
-        .contact-value {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        /* Footer */
-        footer {
-            border-top: var(--border);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-text {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 6px;
-            background: var(--accent);
-            z-index: 10001;
-            transform-origin: left;
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            header {
-                padding: 1rem 0;
-            }
-
-            .hero {
-                padding-top: 80px;
-            }
-
-            .hero-content h1 {
-                font-size: clamp(2.5rem, 12vw, 4rem);
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .stats-header {
-                margin-top: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .stats-header h3 {
-                font-size: 0.9rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stat-box {
-                padding: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .btn {
-                padding: 1rem 1.5rem;
-                font-size: 0.8rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background: var(--bg);
-                border-bottom: var(--border);
-                box-shadow: 0 4px 0 var(--text);
-            }
-
-            nav.open ul {
-                display: flex;
-            }
-
-            nav li a {
-                display: block;
-                padding: 1rem 1.5rem;
-                border-top: 1px solid rgba(0, 0, 0, 0.15);
-            }
-
-            nav a::after {
-                display: none;
-            }
-
-            section[id] {
-                scroll-margin-top: 75px;
-            }
-
-            .role-block {
-                padding-left: 1.5rem;
-            }
-
-            .role-date {
-                display: block;
-                margin: 0.3rem 0 0;
-            }
-
-            .section-number {
-                font-size: 4rem;
-            }
-
-            .section-title {
-                font-size: clamp(1.8rem, 8vw, 3rem);
-            }
-
-            section {
-                padding: 4rem 0;
-            }
-
-            .section-header {
-                margin-bottom: 2rem;
-            }
-
-            .card-meta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .card-date {
-                text-align: left;
-            }
-
-            .card-header {
-                padding: 1.5rem;
-            }
-
-            .card-title {
-                font-size: 1.4rem;
-            }
-
-            .card-company {
-                font-size: 1rem;
-            }
-
-            .card-teaser {
-                font-size: 0.95rem;
-            }
-
-            .expandable-card.expanded .card-details {
-                padding: 1.5rem;
-            }
-
-            .card-details li {
-                font-size: 0.95rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-title {
-                font-size: 1.3rem;
-            }
-
-            .project-teaser {
-                font-size: 0.95rem;
-            }
-
-            .expand-indicator,
-            .project-expand {
-                bottom: 1rem;
-                right: 1rem;
-                width: 35px;
-                height: 35px;
-                font-size: 1.2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact {
-                padding: 3rem 1.5rem;
-            }
-
-            .contact h2 {
-                font-size: clamp(1.8rem, 8vw, 2.5rem);
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
-            }
-
-            .contact-text {
-                font-size: 0.95rem;
-                padding: 0 0.5rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            footer {
-                padding: 2rem 0;
-            }
-
-            .footer-text {
-                font-size: 0.75rem;
-                text-align: center;
-            }
-
-            /* Fix for skewed highlights on mobile */
-            .highlight {
-                display: inline-block;
-                transform: skew(-2deg);
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .stat-label {
-                font-size: 0.7rem;
-            }
-
-            .section-number {
-                font-size: 3rem;
-            }
-
-            .card-title {
-                font-size: 1.2rem;
-            }
-
-            .project-number {
-                font-size: 2rem;
-                padding: 0.8rem;
-            }
-
-            .contact {
-                padding: 2.5rem 1rem;
-            }
-
-            .contact h2 {
-                font-size: 1.6rem;
-                line-height: 1.3;
-                word-break: keep-all;
-                overflow-wrap: normal;
-            }
-
-            .contact-text {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .contact-item {
-                padding: 1.2rem;
-            }
-
-            .contact-value {
-                font-size: 0.85rem;
-                word-break: break-all;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-    </style>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%23ffffff'%3ESJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- Tokens ---------- */
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --tile: #f5f5f7;
+    --tile-2: #e8e8ed;
+    --text: #1d1d1f;
+    --text-2: #6e6e73;
+    --hair: rgba(0, 0, 0, 0.12);
+    --accent: #0071e3;
+    --accent-text: #0066cc;
+    --glass: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --lift: 0 18px 40px rgba(0, 0, 0, 0.08);
+    --g1: linear-gradient(100deg, #e8501c, #c2185b);
+    --g2: linear-gradient(100deg, #0071e3, #6e3ff3);
+    --g3: linear-gradient(100deg, #0a8f5b, #00798a);
+    --g4: linear-gradient(100deg, #8e3ad6, #c2185b);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+}
+:root[data-theme="dark"], .on-dark {
+    --bg: #000000;
+    --bg-alt: #161617;
+    --tile: #1c1c1e;
+    --tile-2: #2c2c2e;
+    --text: #f5f5f7;
+    --text-2: #a1a1a6;
+    --hair: rgba(255, 255, 255, 0.16);
+    --accent-text: #2997ff;
+    --glass: rgba(22, 22, 23, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --lift: 0 18px 40px rgba(0, 0, 0, 0.5);
+    --g1: linear-gradient(100deg, #ff7a45, #ff4f8b);
+    --g2: linear-gradient(100deg, #2997ff, #a07bff);
+    --g3: linear-gradient(100deg, #30d158, #40c8e0);
+    --g4: linear-gradient(100deg, #bf5af2, #ff4f8b);
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #000000;
+        --bg-alt: #161617;
+        --tile: #1c1c1e;
+        --tile-2: #2c2c2e;
+        --text: #f5f5f7;
+        --text-2: #a1a1a6;
+        --hair: rgba(255, 255, 255, 0.16);
+        --accent-text: #2997ff;
+        --glass: rgba(22, 22, 23, 0.72);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --lift: 0 18px 40px rgba(0, 0, 0, 0.5);
+        --g1: linear-gradient(100deg, #ff7a45, #ff4f8b);
+        --g2: linear-gradient(100deg, #2997ff, #a07bff);
+        --g3: linear-gradient(100deg, #30d158, #40c8e0);
+        --g4: linear-gradient(100deg, #bf5af2, #ff4f8b);
+    }
+}
+@media (prefers-contrast: more) {
+    :root, :root[data-theme="dark"], .on-dark { --hair: currentColor; }
+    :root:not([data-theme="dark"]) { --text-2: #3a3a3c; }
+    :root[data-theme="dark"], .on-dark { --text-2: #d1d1d6; }
+    .tile { outline: 1px solid var(--text); }
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body {
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.01em;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+body:has(dialog[open]) { overflow: hidden; }
+a { color: var(--accent-text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1024px; margin: 0 auto; padding: 0 22px; }
+.on-dark { background: var(--bg); color: var(--text); }
+.alt { background: var(--bg-alt); }
+.muted { color: var(--text-2); }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 100; background: var(--bg); padding: 8px 14px; border-radius: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Glass nav (functional layer only) ---------- */
+.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--glass-border);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .nav { background: var(--bg); } }
+@media (prefers-reduced-transparency: reduce) { .nav { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+@media (prefers-contrast: more) { .nav { background: var(--bg); border-bottom-color: var(--text); } }
+.nav-inner { max-width: 1024px; margin: 0 auto; padding: 0 22px; height: 52px; display: flex; align-items: center; gap: 24px; }
+.brand { font-weight: 600; font-size: 19px; color: var(--text); letter-spacing: -0.02em; }
+.brand:hover { text-decoration: none; }
+.nav nav { margin-left: auto; }
+.nav ul { display: flex; gap: 28px; }
+.nav ul a { color: var(--text); font-size: 14px; opacity: 0.85; display: inline-flex; align-items: center; min-height: 44px; }
+.nav ul a:hover { opacity: 1; text-decoration: none; }
+.icon-btn {
+    width: 44px; height: 44px; border: 0; background: transparent; color: var(--text);
+    font-size: 18px; cursor: pointer; border-radius: 50%; flex: none;
+}
+.icon-btn:hover { background: var(--hair); }
+.menu-btn { display: none; }
+
+/* ---------- Buttons ---------- */
+.actions { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; }
+.center { justify-content: center; }
+.btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+    padding: 0 24px; border-radius: 980px; background: var(--accent); color: #fff;
+    font-size: 17px; font-weight: 500; border: 0; cursor: pointer;
+}
+.btn:hover { text-decoration: none; filter: brightness(1.08); }
+.link {
+    display: inline-flex; align-items: center; gap: 4px; min-height: 44px;
+    color: var(--accent-text); font-size: 17px; background: none; border: 0; cursor: pointer; font-family: inherit;
+}
+
+/* ---------- Gradient figures (signature) ---------- */
+.fig { font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--text); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .fig { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .fig.g1 { background-image: var(--g1); }
+    .fig.g2 { background-image: var(--g2); }
+    .fig.g3 { background-image: var(--g3); }
+    .fig.g4 { background-image: var(--g4); }
+}
+@media (prefers-contrast: more) { .fig { background: none !important; -webkit-text-fill-color: currentColor; } }
+.fig .unit { font-size: 0.4em; font-weight: 500; letter-spacing: 0; color: var(--text-2); -webkit-text-fill-color: currentColor; }
+
+/* ---------- Story: hero ---------- */
+.hero { text-align: center; padding: clamp(88px, 14vw, 160px) 0 clamp(72px, 10vw, 120px); }
+.hero .eyebrow { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(48px, 8.4vw, 96px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; }
+.hero .tagline { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); margin: 22px auto 0; max-width: 720px; }
+.hero .pitch { color: var(--text-2); max-width: 620px; margin: 18px auto 36px; }
+
+/* ---------- Story: stats ---------- */
+.stats { padding: clamp(64px, 9vw, 100px) 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 24px; text-align: center; }
+.stat .fig { font-size: clamp(44px, 6vw, 64px); }
+.stat p { color: var(--text-2); margin-top: 10px; }
+
+/* ---------- Section headings ---------- */
+.section-head { padding-block: clamp(80px, 11vw, 130px) clamp(48px, 6vw, 72px); }
+.section-title { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
+.section-sub { color: var(--text-2); font-size: clamp(19px, 2.2vw, 24px); margin-top: 12px; max-width: 680px; }
+
+/* ---------- Story: project bands ---------- */
+.band { text-align: center; padding: clamp(88px, 12vw, 150px) 0; }
+.band .kicker { font-size: 17px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; }
+.band h3 { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
+.band .summary { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); max-width: 680px; margin: 16px auto 0; }
+.band .fig { font-size: clamp(88px, 16vw, 180px); margin-top: clamp(40px, 6vw, 64px); }
+.band .fig-label { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; margin-top: 12px; }
+.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
+.tag { font-size: 14px; padding: 6px 14px; border-radius: 980px; border: 1px solid var(--hair); color: var(--text-2); }
+.band .link { margin-top: 20px; }
+
+/* ---------- Bento body ---------- */
+.bento {
+    max-width: 1024px; margin: 0 auto; padding: 0 22px clamp(80px, 10vw, 120px);
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(210px, auto);
+    grid-auto-flow: dense; gap: 16px;
+}
+.tile {
+    position: relative; background: var(--tile); border-radius: 28px; padding: 28px;
+    display: flex; flex-direction: column; overflow: hidden; isolation: isolate;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease;
+}
+.w2 { grid-column: span 2; }
+.w4 { grid-column: span 4; }
+.h2 { grid-row: span 2; }
+.tile .kicker { font-size: 14px; font-weight: 600; color: var(--text-2); }
+.tile h2, .tile h3 { letter-spacing: -0.02em; line-height: 1.15; }
+.tile h3 { font-size: 24px; margin-top: 6px; }
+.tile .grow { margin-top: auto; }
+.tile .fig { font-size: 40px; padding-top: 20px; }
+.tile .fig-label { font-size: 15px; color: var(--text-2); margin-top: 6px; }
+
+/* Openable tiles: the whole tile opens the sheet. */
+.tile.openable { cursor: pointer; }
+.tile.openable:hover { transform: translateY(-4px); box-shadow: var(--lift); }
+.tile.openable .fig-label { padding-right: 44px; }
+.tile-open {
+    position: absolute; right: 20px; bottom: 20px; width: 36px; height: 36px; border-radius: 50%;
+    border: 0; background: var(--tile-2); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer;
+    display: grid; place-items: center; transition: transform 0.3s ease;
+}
+.tile-open:focus-visible { outline: none; }
+.tile.openable:has(.tile-open:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
+.tile.openable:hover .tile-open { transform: rotate(90deg); }
+
+/* Experience tile */
+.xp h3 { font-size: clamp(26px, 3vw, 34px); }
+.xp-list { margin-top: 20px; }
+.xp-list li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--hair); }
+.xp-list b { font-weight: 600; display: block; }
+.xp-list span { color: var(--text-2); font-size: 15px; white-space: nowrap; }
+.xp-list li:last-child { padding-right: 44px; }
+.path { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; }
+.path span { padding: 5px 11px; border-radius: 980px; background: var(--tile-2); }
+.path span:last-child { background: var(--accent); color: #fff; }
+.path i { font-style: normal; color: var(--text-2); }
+
+/* Chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip { font-size: 14px; padding: 6px 13px; border-radius: 980px; background: var(--tile-2); }
+
+/* Education & certs */
+.edu .fig { font-size: 52px; white-space: nowrap; }
+.certs { margin-top: 10px; }
+.certs li { padding: 9px 0; border-top: 1px solid var(--hair); font-size: 15px; display: flex; gap: 10px; }
+.certs li:first-child { border-top: 0; }
+.certs li::before { content: "✓"; color: var(--accent-text); font-weight: 700; }
+
+/* Contact */
+.contact { padding: clamp(36px, 6vw, 64px); flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.contact h2 { font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.035em; line-height: 1.05; }
+.contact p { color: var(--text-2); margin-top: 12px; max-width: 520px; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-2); margin-bottom: 14px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #30d158; box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.2); }
+
+footer { padding: 28px 0 40px; font-size: 12px; color: var(--text-2); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--hair); padding-top: 18px; }
+
+/* ---------- Sheet ---------- */
+dialog.sheet {
+    border: 0; padding: 0; margin: auto; color: var(--text); background: var(--bg);
+    width: min(680px, calc(100% - 32px)); max-width: 100%; max-height: min(86vh, 880px);
+    border-radius: 28px; overflow: auto; overscroll-behavior: contain;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
+}
+dialog.sheet::backdrop { background: rgba(0, 0, 0, 0.35); }
+dialog.sheet[open] { animation: pop 0.38s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes pop { from { opacity: 0; transform: translateY(24px) scale(0.97); } }
+@keyframes slide-up { from { transform: translateY(100%); } }
+.sheet-head {
+    position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; padding: 10px 12px;
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    backdrop-filter: blur(24px) saturate(1.4);
+}
+@media (prefers-reduced-transparency: reduce) { .sheet-head { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+@media (prefers-contrast: more) { .sheet-head { background: var(--bg); border-bottom: 1px solid var(--text); } }
+.sheet-head .icon-btn { background: var(--tile); font-size: 16px; }
+.grabber { display: none; }
+.sheet-body { padding: 0 40px 44px; }
+.sheet-body .kicker { font-size: 15px; font-weight: 600; color: var(--text-2); }
+.sheet-body h2 { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.03em; line-height: 1.1; margin-top: 4px; }
+.sheet-body .fig { font-size: clamp(64px, 10vw, 96px); margin-top: 28px; }
+.sheet-body .fig-label { font-weight: 600; margin-top: 8px; }
+.sheet-body .lead { font-size: 21px; color: var(--text-2); margin-top: 24px; }
+.sheet-body .chip { background: var(--tile); }
+.plain { margin-top: 24px; padding: 18px 20px; border-radius: 16px; background: var(--tile); color: var(--text-2); font-style: italic; }
+.sheet-section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); }
+.sheet-section h3 { font-size: 21px; letter-spacing: -0.015em; }
+.sheet-section .meta { color: var(--text-2); font-size: 15px; }
+.role { margin-top: 16px; }
+.role h4 { font-size: 17px; }
+.role h4 span { font-weight: 400; color: var(--text-2); }
+.role li { position: relative; padding-left: 18px; color: var(--text-2); margin-top: 8px; }
+.role li::before { content: ""; position: absolute; left: 2px; top: 0.7em; width: 6px; height: 6px; border-radius: 50%; background: var(--text-2); }
+
+/* ---------- Motion ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .tile, .tile-open { transition: none; }
+    .tile.openable:hover, .tile.openable:hover .tile-open { transform: none; }
+    dialog.sheet[open] { animation: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1068px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .bento { grid-template-columns: repeat(2, 1fr); }
+    .w4 { grid-column: span 2; }
+}
+@media (max-width: 734px) {
+    .menu-btn { display: inline-block; }
+    .nav ul {
+        display: none; position: absolute; top: 52px; left: 0; right: 0;
+        flex-direction: column; gap: 0; padding: 8px 22px 16px;
+        background: var(--bg); border-bottom: 1px solid var(--hair);
+    }
+    .nav ul.open { display: flex; }
+    .nav ul a { font-size: 21px; width: 100%; border-bottom: 1px solid var(--hair); min-height: 52px; }
+    .actions .btn { width: 100%; }
+
+    .bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }
+    .w2, .w4 { grid-column: span 1; }
+    .h2 { grid-row: span 1; }
+    .tile { padding: 24px; min-height: 180px; }
+    .xp-list li { flex-direction: column; gap: 2px; }
+    .contact { flex-direction: column; align-items: flex-start; }
+
+    dialog.sheet { width: 100%; margin: auto 0 0; max-height: 92vh; border-radius: 28px 28px 0 0; }
+    dialog.sheet[open] { animation-name: slide-up; }
+    .sheet-head { justify-content: space-between; align-items: center; }
+    .grabber { display: block; width: 40px; height: 5px; border-radius: 3px; background: var(--hair); margin-left: calc(50% - 32px); }
+    .sheet-body { padding: 0 24px 36px; }
+}
+</style>
 </head>
 <body>
-    <div class="progress-bar" id="progressBar"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">SHUBHAM<span>.</span>JAIN</div>
-                <nav id="siteNav">
-                    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">☰</button>
-                    <ul>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#education">Education</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+<header class="nav">
+    <div class="nav-inner">
+        <a class="brand" href="#top" id="brand"></a>
+        <nav aria-label="Primary">
+            <ul id="navLinks">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">Experience</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeToggle" type="button">◐</button>
+            <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    <!-- Story intro -->
+    <section class="hero" id="top">
+        <div class="wrap">
+            <p class="eyebrow" id="heroEyebrow"></p>
+            <h1 class="reveal">Builds systems<br>people use every day.</h1>
+            <p class="tagline reveal" id="heroTagline"></p>
+            <p class="pitch reveal" id="heroPitch"></p>
+            <div class="actions center reveal">
+                <a class="btn" href="#contact">Let's talk</a>
+                <a class="link" id="cvLink" download="Shubham_Jain_Resume.pdf">Download CV ›</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="fade-in">
-                        <span class="highlight">SHUBHAM</span><br>
-                        JAIN<br>
-                        <span class="highlight highlight-2">BUILDS</span> <span class="highlight highlight-3">SYSTEMS</span>
-                    </h1>
-                    <p class="hero-role fade-in delay-1">Forward Deployed Engineer · Agentic AI &amp; Prescriptive ML for Manufacturing</p>
-                    <p class="hero-subtitle fade-in delay-1">
-                        I embed with plant operators, scope the problem on the ground, and ship what they end up using every day —
-                        supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational
-                        data apps running inside a legacy alumina plant.
-                    </p>
+    <section class="stats alt" aria-label="Impact by the numbers">
+        <div class="wrap"><div class="stats-grid" id="stats"></div></div>
+    </section>
 
-                    <div class="stats-header fade-in delay-2">
-                        <h3>Impact by the Numbers</h3>
-                    </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-box fade-in delay-2">
-                            <div class="stat-number" data-target="400">0</div>
-                            <div class="stat-label">Hrs/Year First-Time-Right Production Added</div>
-                        </div>
-                        <div class="stat-box fade-in delay-3">
-                            <div class="stat-number" data-target="40">0</div>
-                            <div class="stat-label">% Manual Processing Time Cut</div>
-                        </div>
-                        <div class="stat-box fade-in delay-3">
-                            <div class="stat-number" data-target="18">0</div>
-                            <div class="stat-label">% Detection Accuracy Improved</div>
-                        </div>
-                        <div class="stat-box fade-in delay-4">
-                            <div class="stat-number">₹5M+</div>
-                            <div class="stat-label">Business Value Generated</div>
-                        </div>
-                    </div>
-
-                    <div class="cta-buttons fade-in delay-4">
-                        <a href="#contact" class="btn">Let's Talk</a>
-                        <a href="resume.pdf" download="Shubham_Jain_Resume.pdf" class="btn btn-secondary">Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-number">01</div>
-                    <div class="section-title">Experience</div>
-                </div>
-
-                <div class="cards-grid">
-                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="card-header">
-                            <div class="card-meta">
-                                <div>
-                                    <h3 class="card-title">Forward Deployed Engineer</h3>
-                                    <div class="card-company">Aditya Birla Management Corporation — Group Data &amp; Analytics</div>
-                                </div>
-                                <div class="card-date">
-                                    JAN 2025 – PRESENT<br>
-                                    BENGALURU, KA
-                                </div>
-                            </div>
-                            <p class="card-teaser">
-                                Moved into an alumina plant for weeks, gave it a digital twin and a supervisor agent that knows which tool to call, and now operators use it daily without thinking about it.
-                            </p>
-                            <div class="expand-indicator" aria-hidden="true">+</div>
-                        </div>
-                        <div class="card-details">
-                            <div class="role-block">
-                                <h4 class="role-title">Forward Deployed Engineer <span class="role-date">Jan 2026 – Present</span></h4>
-                                <ul>
-                                    <li>Embedded with plant operators for weeks at a legacy alumina plant to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end, fusing high-frequency sensor data with ML models for simulation-based optimization across production, quality, and energy trade-offs; operators now use it daily</li>
-                                    <li>Architected and deployed a supervisor-agent AI system with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase; replaced manual analyst intervention in plant decision workflows and adds 400 hours/year of first-time-right production</li>
-                                    <li>Designed and shipped a Databricks App (Streamlit/React) for plant teams to query process data conversationally, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages</li>
-                                    <li>Sole owner of the stakeholder chain from plant operator to CEO: translated operator needs into build requirements, reported outcomes and shortcomings to leadership, and owned adoption after go-live</li>
-                                </ul>
-                            </div>
-                            <div class="role-block">
-                                <h4 class="role-title">Management Trainee, Data Scientist <span class="role-date">Jul 2025 – Jan 2026</span></h4>
-                                <ul>
-                                    <li>Built a multi-horizon forecasting and prescriptive optimization engine for Specific Surface Area (SSA) in calcination, pairing LightGBM forecasts with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking to raise first-time-right (FTR)</li>
-                                    <li>Designed, trained, and deployed an LLM-SLM-XGBoost hybrid for insurance claims fraud detection end-to-end: 18% accuracy uplift and 40% reduction in manual processing time</li>
-                                    <li>Built a spatiotemporal ML model for early disease hotspot detection through geospatial/time-series feature engineering, delivering multi-week risk forecasts that generated ₹5M+ in business value</li>
-                                </ul>
-                            </div>
-                            <div class="role-block">
-                                <h4 class="role-title">Data &amp; Analytics Trainee <span class="role-date">Jan 2025 – Jun 2025</span></h4>
-                                <ul>
-                                    <li>Fine-tuned a small language model (SLM) on plant terminology and data structures for domain-specific operations queries, enabling lightweight, low-latency deployment</li>
-                                    <li>Built an OPC UA connector streaming live sensor data from 4+ manufacturing lines into PostgreSQL via Databricks/PySpark pipelines, with CI on Azure DevOps under MLOps best practices</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="card-header">
-                            <div class="card-meta">
-                                <div>
-                                    <h3 class="card-title">Business Analyst Intern</h3>
-                                    <div class="card-company">Fractal Analytics</div>
-                                </div>
-                                <div class="card-date">
-                                    MAY 2024 – JUL 2024<br>
-                                    BENGALURU, KA
-                                </div>
-                            </div>
-                            <p class="card-teaser">
-                                Ran A/B tests until we found the golden cohort, then watched conversion rates climb 10%. Turned messy customer data into C-suite presentations that actually changed strategy.
-                            </p>
-                            <div class="expand-indicator" aria-hidden="true">+</div>
-                        </div>
-                        <div class="card-details">
-                            <ul>
-                                <li>Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort</li>
-                                <li>Designed and ran A/B tests to isolate high-impact customer segments and optimize engagement across multiple touchpoints</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="expandable-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="card-header">
-                            <div class="card-meta">
-                                <div>
-                                    <h3 class="card-title">Quant Analyst Intern</h3>
-                                    <div class="card-company">Subhkam Ventures</div>
-                                </div>
-                                <div class="card-date">
-                                    JUN 2023 – JUL 2023<br>
-                                    MUMBAI, MH
-                                </div>
-                            </div>
-                            <p class="card-teaser">
-                                Beat the market by 15% using math and momentum. Optimized trading algorithms across 1,100 stocks while everyone else was still using spreadsheets. Turns out computers are pretty good at patterns.
-                            </p>
-                            <div class="expand-indicator" aria-hidden="true">+</div>
-                        </div>
-                        <div class="card-details">
-                            <ul>
-                                <li>Formulated proprietary quantitative trading strategies leveraging moving averages and momentum indicators, achieving measurable 15% outperformance against NIFTY50 benchmarks</li>
-                                <li>Deployed optimization models to refine momentum-based trading strategies, resulting in 25% increase in returns on diversified portfolio of 1,100+ cash stocks</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-number">02</div>
-                    <div class="section-title">Featured Work</div>
-                </div>
-
-                <div class="projects-grid">
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">01</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Supervisor-Agent AI System</h3>
-                            <p class="project-teaser">
-                                A middle manager for AI agents, except it actually delegates well. Hears your question, decides if it's a job for RAG, Genie, or a model, and remembers you next time. Analysts got their afternoons back.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.
-                            </p>
-                            <div class="project-impact">Impact: +400 hrs/year first-time-right production</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">02</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Calcination Digital Twin</h3>
-                            <p class="project-teaser">
-                                Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant an evil twin. Plot twist: it's helpful. It tries every trade-off first so the real plant doesn't have to.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.
-                            </p>
-                            <div class="project-impact">Impact: Used daily by plant operators</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">03</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Conversational Plant Data App</h3>
-                            <p class="project-teaser">
-                                Plant data, but you can just talk to it. Operators ask in plain English, leadership gets its own view, and nobody has to pretend they understand the other's dashboard anymore.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.
-                            </p>
-                            <div class="project-impact">Impact: Self-serve process data for operators to leadership</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">04</div>
-                        <div class="project-content">
-                            <h3 class="project-title">SSA Forecast &amp; Prescribe Engine</h3>
-                            <p class="project-teaser">
-                                Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult. Then it keeps a scorecard of prescription vs. actual, because trust is earned.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.
-                            </p>
-                            <div class="project-impact">Impact: Raised first-time-right (FTR) rates</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">05</div>
-                        <div class="project-content">
-                            <h3 class="project-title">AI Claims Engine</h3>
-                            <p class="project-teaser">
-                                Taught AI to read insurance claims like a skeptical detective. Big model reads, small model squints, XGBoost delivers the verdict. Fraudsters hate this one weird stack.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end-to-end — language models for document understanding feeding an XGBoost fraud classifier.
-                            </p>
-                            <div class="project-impact">Impact: 40% time reduction, 18% accuracy uplift</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">06</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Disease Hotspot Forecasting</h3>
-                            <p class="project-teaser">
-                                Built a crystal ball for disease outbreaks. Predicts hotspots weeks before they happen. Underwriters loved it. No actual magic involved, just spatiotemporal ML.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.
-                            </p>
-                            <div class="project-impact">Impact: Generated ₹5M+ in business value</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">07</div>
-                        <div class="project-content">
-                            <h3 class="project-title">NL2SQL Agent</h3>
-                            <p class="project-teaser">
-                                SQL is a love language most business teams don't speak. So I built an agent that translates. The judges were fluent enough to hand it the win.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.
-                            </p>
-                            <div class="project-impact">Achievement: GDNA Hackathon 2026 Winner</div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" role="button" tabindex="0" aria-expanded="false">
-                        <div class="project-number">08</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Quant Trading Platform</h3>
-                            <p class="project-teaser">
-                                Beat NIFTY50 by 15% with momentum strategies and optimization. Managed 1,100+ stocks systematically. Math beats gut feeling every time.
-                            </p>
-                            <div class="project-expand" aria-hidden="true">+</div>
-                        </div>
-                        <div class="project-details">
-                            <p class="project-description">
-                                Proprietary momentum-based trading algorithms with a systematic backtesting framework. Applied portfolio optimization techniques and risk management strategies to systematically outperform market benchmarks across a large equity universe.
-                            </p>
-                            <div class="project-impact">Impact: 15% vs NIFTY50 outperformance, 25% return improvement</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-number">03</div>
-                    <div class="section-title">Technical Stack</div>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>GenAI &amp; Agentic AI</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Supervisor/Multi-Agent Orchestration</span>
-                            <span class="skill-tag">Intent Classification &amp; Tool Routing</span>
-                            <span class="skill-tag">RAG</span>
-                            <span class="skill-tag">Databricks Genie Spaces</span>
-                            <span class="skill-tag">Session/Long-Term Memory (Lakebase)</span>
-                            <span class="skill-tag">SLM Fine-Tuning</span>
-                            <span class="skill-tag">Prompt Engineering</span>
-                            <span class="skill-tag">LLM Evaluation</span>
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">LangGraph</span>
-                            <span class="skill-tag">Semantic Search</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Machine Learning</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Multi-Horizon Forecasting</span>
-                            <span class="skill-tag">LightGBM</span>
-                            <span class="skill-tag">XGBoost</span>
-                            <span class="skill-tag">Spatiotemporal Modeling</span>
-                            <span class="skill-tag">Feature Engineering</span>
-                            <span class="skill-tag">Causal Inference (DoubleML)</span>
-                            <span class="skill-tag">SHAP</span>
-                            <span class="skill-tag">A/B Testing</span>
-                            <span class="skill-tag">MLflow</span>
-                            <span class="skill-tag">Champion/Challenger</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Optimization &amp; Simulation</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Genetic Algorithms</span>
-                            <span class="skill-tag">Particle Swarm Optimization</span>
-                            <span class="skill-tag">Prescriptive Analytics</span>
-                            <span class="skill-tag">Digital Twins</span>
-                            <span class="skill-tag">Constraint Optimization</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Languages &amp; Data</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">PySpark</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">OPC UA</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Platforms &amp; Delivery</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Databricks</span>
-                            <span class="skill-tag">Databricks Apps (Streamlit/React)</span>
-                            <span class="skill-tag">Azure DevOps</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Power BI</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-number">04</div>
-                    <div class="section-title">Education & Certifications</div>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Education</h3>
-                        </div>
-                        <div class="skill-items" style="display: block;">
-                            <p style="font-weight: 700; margin-bottom: 0.3rem;">B.Tech, Data Science, Economics & Business</p>
-                            <p style="color: #555; margin-bottom: 0.3rem;">Plaksha University | Aug 2021 – Jul 2025</p>
-                            <p style="font-family: 'Space Mono', monospace; font-size: 0.85rem; margin-bottom: 1rem;">CGPA: 9.0 / 10</p>
-                            <p style="color: #555; font-size: 0.9rem;">Econometrics, Machine Learning, Advanced Statistics, Behavioral Economics, Game Theory, Marketing Analytics</p>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <h3>Certifications & Achievements</h3>
-                        </div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Databricks GenAI Engineer Associate (2026)</span>
-                            <span class="skill-tag">Databricks ML Associate</span>
-                            <span class="skill-tag">GDNA Hackathon 2026 Winner</span>
-                            <span class="skill-tag">VMart Scholarship — Top 1%</span>
-                            <span class="skill-tag">Toastmasters Speechcrafter (2025)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <div class="contact">
-                    <h2>OPEN TO OPPORTUNITIES</h2>
-                    <p class="contact-text">
-                        Interested in roles where I can solve complex business challenges and create measurable impact. 
-                        Always happy to discuss opportunities and connect with interesting teams.
-                    </p>
-
-                    <div class="contact-grid">
-                        <a href="mailto:shubhamajay2@gmail.com" class="contact-item">
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">shubhamajay2@gmail.com</div>
-                        </a>
-                        <a href="https://www.linkedin.com/in/shubham-jain26" target="_blank" class="contact-item">
-                            <div class="contact-label">LinkedIn</div>
-                            <div class="contact-value">Connect</div>
-                        </a>
-                    </div>
-
-                    <div class="cta-buttons" style="justify-content: center; margin-top: 2rem;">
-                        <a href="resume.pdf" download="Shubham_Jain_Resume.pdf" class="btn">Download Resume</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-text">© <span id="year">2026</span> SHUBHAM JAIN</div>
+    <section id="work">
+        <div class="wrap section-head">
+            <h2 class="section-title reveal">Selected work.</h2>
+            <p class="section-sub reveal">Systems shipped to production, measured by what changed on the ground.</p>
         </div>
-    </footer>
+        <div id="bands"></div>
+    </section>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Bento body -->
+    <section id="about" aria-labelledby="aboutTitle">
+        <div class="wrap section-head">
+            <h2 class="section-title reveal" id="aboutTitle">At a glance.</h2>
+            <p class="section-sub reveal">More projects, where I've worked, and what I work with. Tap any tile for details.</p>
+        </div>
+        <div class="bento" id="bento"></div>
+    </section>
+</main>
 
-        // Toggle expandable cards
-        const cards = document.querySelectorAll('.expandable-card, .project-card');
+<footer>
+    <div class="wrap">
+        <span id="copyright"></span>
+    </div>
+</footer>
 
-        function toggleCard(card) {
-            // Close all other cards
-            cards.forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('expanded');
-                    c.setAttribute('aria-expanded', 'false');
-                }
-            });
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <div class="sheet-inner">
+        <div class="sheet-head">
+            <span class="grabber" aria-hidden="true"></span>
+            <button class="icon-btn" id="sheetClose" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="sheet-body" id="sheetBody"></div>
+    </div>
+</dialog>
 
-            // Toggle current card
-            const expanded = card.classList.toggle('expanded');
-            card.setAttribute('aria-expanded', expanded);
+<script>
+const DATA = {
+    profile: {
+        name: "Shubham Jain",
+        initials: "SJ",
+        email: "shubhamajay2@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shubham-jain26",
+        resume: "resume.pdf",
+        role: "Forward Deployed Engineer",
+        tagline: "Agentic AI & prescriptive ML for manufacturing.",
+        pitch: "I embed with plant operators, scope the problem on the ground, and ship what they end up using every day: supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational data apps running inside a legacy alumina plant."
+    },
+    stats: [
+        { pre: "+", num: 400, suf: "", label: "hrs/year of first-time-right production", g: "g1" },
+        { pre: "", num: 40, suf: "%", label: "less manual processing time", g: "g2" },
+        { pre: "+", num: 18, suf: "%", label: "detection accuracy", g: "g3" },
+        { pre: "₹", num: 5, suf: "M+", label: "business value generated", g: "g4" }
+    ],
+    projects: [
+        {
+            title: "Supervisor-Agent AI System", kicker: "Agentic AI", featured: true, g: "g1",
+            summary: "One agent that routes every plant question to the right tool, and remembers the answer.",
+            impact: { pre: "+", num: 400, suf: "", label: "hours/year of first-time-right production" },
+            description: "Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.",
+            plain: "A middle manager for AI agents, except it actually delegates well. Analysts got their afternoons back.",
+            tags: ["RAG", "Vector Search", "Genie Spaces", "Lakebase memory"]
+        },
+        {
+            title: "Calcination Digital Twin", kicker: "Simulation & optimization", featured: true, g: "g2",
+            summary: "A virtual calciner that tries every trade-off first, so the real plant doesn't have to.",
+            impact: { text: "Daily", label: "used by plant operators" },
+            description: "Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.",
+            plain: "Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant a helpful twin.",
+            tags: ["Sensor fusion", "ML models", "Simulation", "Multi-objective"]
+        },
+        {
+            title: "AI Claims Engine", kicker: "Fraud detection", featured: true, g: "g3",
+            summary: "Flags suspicious insurance claims before an investigator has to dig.",
+            impact: { pre: "", num: 40, suf: "%", label: "less manual processing · 18% accuracy uplift" },
+            description: "LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end to end. Language models handle document understanding and feed an XGBoost fraud classifier.",
+            plain: "Taught AI to read insurance claims like a skeptical detective.",
+            tags: ["Fraud detection", "Document understanding", "End-to-end deployment"]
+        },
+        {
+            title: "Disease Hotspot Forecasting", kicker: "Spatiotemporal ML", featured: true, g: "g4",
+            summary: "Multi-week risk forecasts that flag outbreaks before they happen.",
+            impact: { pre: "₹", num: 5, suf: "M+", label: "business value generated" },
+            description: "Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.",
+            plain: "A crystal ball for disease outbreaks. No magic involved, just spatiotemporal ML.",
+            tags: ["Geospatial", "Time series", "Feature engineering"]
+        },
+        {
+            title: "Conversational Plant Data App", kicker: "Databricks App", g: "g2",
+            summary: "Operators ask in plain English; leadership gets its own view.",
+            impact: { text: "Self-serve", label: "process data, operator to leadership" },
+            description: "Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.",
+            plain: "Plant data, but you can just talk to it. Nobody has to pretend they understand the other's dashboard anymore.",
+            tags: ["Databricks Apps", "Streamlit", "React", "KPI hierarchy"]
+        },
+        {
+            title: "SSA Forecast & Prescribe Engine", kicker: "Forecasting & optimization", g: "g1",
+            summary: "Forecasts, evolutionary search and causal ML, with a prescription-vs-actual scorecard.",
+            impact: { text: "↑ FTR", label: "raised first-time-right rates" },
+            description: "Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.",
+            plain: "Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult.",
+            tags: ["LightGBM", "GA / PSO", "DoubleML"]
+        },
+        {
+            title: "NL2SQL Agent", kicker: "Agentic AI", g: "g4",
+            summary: "Business teams query data conversationally, without SQL.",
+            impact: { text: "1st", label: "GDNA Hackathon 2026 winner" },
+            description: "Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.",
+            plain: "SQL is a love language most business teams don't speak. So I built an agent that translates.",
+            tags: ["LLM agent", "SQL"]
+        },
+        {
+            title: "Quant Trading Platform", kicker: "Quant research", g: "g3",
+            summary: "Momentum strategies across 1,100+ equities.",
+            impact: { pre: "+", num: 15, suf: "%", label: "vs NIFTY50 · 25% return improvement" },
+            description: "Proprietary momentum-based trading algorithms with a systematic backtesting framework, plus portfolio optimization and risk management across a large equity universe.",
+            plain: "Math beats gut feeling every time.",
+            tags: ["Momentum", "Backtesting", "Portfolio optimization"]
         }
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => toggleCard(card));
-            card.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleCard(card);
-                }
-            });
-        });
-
-        // Mobile nav
-        const nav = document.getElementById('siteNav');
-        const navToggle = document.getElementById('navToggle');
-
-        function setNav(open) {
-            nav.classList.toggle('open', open);
-            navToggle.setAttribute('aria-expanded', open);
-            navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-            navToggle.textContent = open ? '✕' : '☰';
+    ],
+    experience: [
+        {
+            company: "Aditya Birla Management Corporation", unit: "Group Data & Analytics",
+            dates: "Jan 2025 – Present", place: "Bengaluru",
+            path: ["Trainee", "Data Scientist", "FDE"],
+            roles: [
+                { title: "Forward Deployed Engineer", dates: "Jan 2026 – Present", points: [
+                    "Embedded with plant operators for weeks to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end across production, quality, and energy trade-offs; operators now use it daily.",
+                    "Architected and deployed a supervisor-agent system with intent classification and tool routing across RAG, Genie Spaces, and model endpoints, with session and long-term memory on Lakebase; adds 400 hours/year of first-time-right production.",
+                    "Shipped a Databricks App for conversational querying of process data with role-based views, a KPI hierarchy, optimization prescriptions, alerting, and data-quality pages.",
+                    "Sole owner of the stakeholder chain from plant operator to CEO, including adoption after go-live."
+                ] },
+                { title: "Management Trainee, Data Scientist", dates: "Jul 2025 – Jan 2026", points: [
+                    "Built a multi-horizon forecasting and prescriptive optimization engine for SSA in calcination (LightGBM + GA/PSO + DoubleML) with prescription-vs-actual tracking.",
+                    "Shipped an LLM-SLM-XGBoost hybrid for claims fraud detection: 18% accuracy uplift, 40% less manual processing time.",
+                    "Built a spatiotemporal disease-hotspot model delivering multi-week risk forecasts worth ₹5M+ in business value."
+                ] },
+                { title: "Data & Analytics Trainee", dates: "Jan 2025 – Jun 2025", points: [
+                    "Fine-tuned a small language model on plant terminology for low-latency, domain-specific operations queries.",
+                    "Built an OPC UA connector streaming live sensor data from 4+ lines into PostgreSQL via Databricks/PySpark, with CI on Azure DevOps."
+                ] }
+            ]
+        },
+        {
+            company: "Fractal Analytics", dates: "May 2024 – Jul 2024", place: "Bengaluru",
+            roles: [{ title: "Business Analyst Intern", dates: "", points: [
+                "Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort.",
+                "Designed and ran A/B tests to isolate high-impact customer segments across multiple touchpoints."
+            ] }]
+        },
+        {
+            company: "Subhkam Ventures", dates: "Jun 2023 – Jul 2023", place: "Mumbai",
+            roles: [{ title: "Quant Analyst Intern", dates: "", points: [
+                "Formulated quantitative strategies using moving averages and momentum indicators, achieving 15% outperformance against NIFTY50.",
+                "Deployed optimization models that raised returns by 25% on a diversified portfolio of 1,100+ cash stocks."
+            ] }]
         }
+    ],
+    skills: [
+        { group: "GenAI & Agentic AI", items: ["Supervisor/Multi-Agent Orchestration", "Intent Classification & Tool Routing", "RAG", "Databricks Genie Spaces", "Session/Long-Term Memory (Lakebase)", "SLM Fine-Tuning", "Prompt Engineering", "LLM Evaluation", "LangChain", "LangGraph", "Semantic Search"] },
+        { group: "Machine Learning", items: ["Multi-Horizon Forecasting", "LightGBM", "XGBoost", "Spatiotemporal Modeling", "Feature Engineering", "Causal Inference (DoubleML)", "SHAP", "A/B Testing", "MLflow", "Champion/Challenger"] },
+        { group: "Optimization & Simulation", items: ["Genetic Algorithms", "Particle Swarm Optimization", "Prescriptive Analytics", "Digital Twins", "Constraint Optimization"] },
+        { group: "Languages & Data", items: ["Python", "Pandas", "NumPy", "Scikit-learn", "PyTorch", "SQL", "PySpark", "PostgreSQL", "OPC UA"] },
+        { group: "Platforms & Delivery", items: ["Databricks", "Databricks Apps (Streamlit/React)", "Azure DevOps", "Git", "AWS", "Power BI"] }
+    ],
+    topSkills: ["Multi-Agent Orchestration", "RAG", "LangGraph", "LightGBM", "XGBoost", "DoubleML", "GA / PSO", "Digital Twins", "Python", "PySpark", "Databricks", "Azure DevOps"],
+    education: {
+        degree: "B.Tech, Data Science, Economics & Business",
+        school: "Plaksha University", dates: "2021 – 2025", cgpa: "9.0",
+        coursework: "Econometrics, Machine Learning, Advanced Statistics, Behavioral Economics, Game Theory, Marketing Analytics"
+    },
+    certifications: ["Databricks GenAI Engineer Associate (2026)", "Databricks ML Associate", "GDNA Hackathon 2026 Winner", "VMart Scholarship — Top 1%", "Toastmasters Speechcrafter (2025)"]
+};
 
-        navToggle.addEventListener('click', () => setNav(!nav.classList.contains('open')));
-        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+const P = DATA.profile, X = DATA.projects;
 
-        // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('progressBar').style.width = scrollPercent + '%';
-        });
+/* Visible digits animate; screen readers get the final value. */
+function figure(f, cls) {
+    if (f.text) return `<div class="fig ${cls}">${f.text}</div>`;
+    const final = `${f.pre}${f.num}${f.suf}`;
+    return `<div class="fig ${cls}"><span aria-hidden="true" data-count="${f.num}" data-pre="${f.pre}" data-suf="${f.suf}">${final}</span><span class="sr-only">${final}</span></div>`;
+}
+const opener = (key, label) => `<button class="tile-open" type="button" data-open="${key}" aria-label="${label}" aria-haspopup="dialog">+</button>`;
 
-        // Animated Counter
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
+function projectTile(i) {
+    const x = X[i];
+    return `
+        <article class="tile openable reveal">
+            <p class="kicker">${x.kicker}</p>
+            <h3>${x.title}</h3>
+            <div class="grow">${figure(x.impact, x.g)}<p class="fig-label">${x.impact.label}</p></div>
+            ${opener(`project:${i}`, `Open details: ${x.title}`)}
+        </article>`;
+}
 
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
+/* ---------- Render: story intro ---------- */
+$("brand").textContent = P.initials;
+$("heroEyebrow").textContent = `${P.name} · ${P.role}`;
+$("heroTagline").textContent = P.tagline;
+$("heroPitch").textContent = P.pitch;
+$("cvLink").href = P.resume;
+$("copyright").textContent = `© ${new Date().getFullYear()} ${P.name}`;
 
-            updateCounter();
-        }
+$("stats").innerHTML = DATA.stats.map(s => `
+    <div class="stat reveal">${figure(s, s.g)}<p>${s.label}</p></div>`).join("");
 
-        // Intersection Observer for counters
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
+$("bands").innerHTML = X.map((x, i) => x.featured ? `
+    <article class="band ${i % 2 ? "alt" : "on-dark"}">
+        <div class="wrap">
+            <p class="kicker reveal">${x.kicker}</p>
+            <h3 class="reveal">${x.title}</h3>
+            <p class="summary reveal">${x.summary}</p>
+            <div class="reveal">${figure(x.impact, x.g)}<p class="fig-label">${x.impact.label}</p></div>
+            <div class="tags reveal">${x.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            <button class="link" type="button" data-open="project:${i}" aria-haspopup="dialog">Learn more ›</button>
+        </div>
+    </article>` : "").join("");
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.target.hasAttribute('data-target')) {
-                    animateCounter(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+/* ---------- Render: bento body ---------- */
+const ed = DATA.education;
+const rest = X.map((x, i) => i).filter(i => !X[i].featured);
+$("bento").innerHTML = `
+    ${projectTile(rest[0])}
+    ${projectTile(rest[1])}
 
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    <article class="tile openable xp w2 h2 reveal">
+        <p class="kicker">Experience</p>
+        <h3>Embedded where the work happens.</h3>
+        <div class="path" aria-label="Career path">${DATA.experience[0].path.map(s => `<span>${s}</span>`).join("<i aria-hidden='true'>→</i>")}</div>
+        <ul class="xp-list grow">
+            ${DATA.experience.map(e => `<li><div><b>${e.company}</b><span>${e.roles[0].title}</span></div><span>${e.dates}</span></li>`).join("")}
+        </ul>
+        ${opener("experience", "Open full experience timeline")}
+    </article>
 
-        document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-            if (reduceMotion) {
-                el.textContent = el.getAttribute('data-target');
-            } else {
-                observer.observe(el);
-            }
-        });
-    </script>
+    ${projectTile(rest[2])}
+    ${projectTile(rest[3])}
+
+    <article class="tile openable w2 reveal" id="stack">
+        <p class="kicker">Stack</p>
+        <h3>Agents, forecasting and optimization, shipped on Databricks.</h3>
+        <div class="chips">${DATA.topSkills.map(s => `<span class="chip">${s}</span>`).join("")}</div>
+        ${opener("skills", "Open full tech stack")}
+    </article>
+
+    <article class="tile edu reveal">
+        <p class="kicker">Education · ${ed.dates}</p>
+        <h3>${ed.degree}</h3>
+        <p class="muted">${ed.school}</p>
+        <div class="grow fig g2">${ed.cgpa}<span class="unit"> / 10 CGPA</span></div>
+    </article>
+
+    <article class="tile reveal">
+        <p class="kicker">Certifications</p>
+        <ul class="certs">${DATA.certifications.map(c => `<li>${c}</li>`).join("")}</ul>
+    </article>
+
+    <section class="tile contact on-dark w4 reveal" id="contact" aria-labelledby="contactTitle">
+        <div>
+            <p class="status">Open to opportunities</p>
+            <h2 id="contactTitle">Let's build something real.</h2>
+            <p>Interested in roles where I can solve complex business challenges and create measurable impact.</p>
+        </div>
+        <div class="actions">
+            <a class="btn" href="mailto:${P.email}">Email me</a>
+            <a class="link" href="${P.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ›</a>
+            <a class="link" href="${P.resume}" download="Shubham_Jain_Resume.pdf">Résumé ›</a>
+        </div>
+    </section>`;
+
+/* ---------- Sheet content ---------- */
+function sheetContent(key) {
+    const [type, idx] = key.split(":");
+    if (type === "project") {
+        const x = X[+idx];
+        return `
+            <p class="kicker">${x.kicker}</p>
+            <h2 id="sheetTitle">${x.title}</h2>
+            ${figure(x.impact, x.g)}
+            <p class="fig-label">${x.impact.label}</p>
+            <p class="lead">${x.summary}</p>
+            <div class="sheet-section"><p>${x.description}</p></div>
+            <p class="plain">${x.plain}</p>
+            <div class="chips">${x.tags.map(t => `<span class="chip">${t}</span>`).join("")}</div>`;
+    }
+    if (type === "experience") return `
+        <p class="kicker">Experience</p>
+        <h2 id="sheetTitle">Where I've worked.</h2>
+        ${DATA.experience.map(e => `
+            <div class="sheet-section">
+                <h3>${e.company}</h3>
+                <p class="meta">${e.unit ? e.unit + " · " : ""}${e.place} · ${e.dates}</p>
+                ${e.roles.map(r => `
+                    <div class="role">
+                        <h4>${r.title}${r.dates ? ` <span>· ${r.dates}</span>` : ""}</h4>
+                        <ul>${r.points.map(pt => `<li>${pt}</li>`).join("")}</ul>
+                    </div>`).join("")}
+            </div>`).join("")}`;
+    return `
+        <p class="kicker">Stack</p>
+        <h2 id="sheetTitle">Full tech stack.</h2>
+        ${DATA.skills.map(s => `
+            <div class="sheet-section">
+                <h3>${s.group}</h3>
+                <div class="chips">${s.items.map(i => `<span class="chip">${i}</span>`).join("")}</div>
+            </div>`).join("")}`;
+}
+
+/* ---------- Behaviour ---------- */
+const sheet = $("sheet");
+let lastOpener = null;
+
+/* Band buttons and whole bento tiles both open the same sheet. */
+document.addEventListener("click", e => {
+    if (e.target.closest("a") || sheet.contains(e.target)) return;
+    const trigger = e.target.closest("[data-open]") || e.target.closest(".tile.openable")?.querySelector("[data-open]");
+    if (!trigger) return;
+    lastOpener = trigger;
+    $("sheetBody").innerHTML = sheetContent(trigger.dataset.open);
+    sheet.showModal();
+    sheet.scrollTop = 0;
+    sheet.querySelectorAll("[data-count]").forEach(countUp);
+});
+$("sheetClose").addEventListener("click", () => sheet.close());
+sheet.addEventListener("click", e => { if (e.target === sheet) sheet.close(); });
+sheet.addEventListener("close", () => lastOpener && lastOpener.focus());
+
+function countUp(el) {
+    const end = +el.dataset.count, pre = el.dataset.pre, suf = el.dataset.suf;
+    if (reduceMotion) return;
+    const t0 = performance.now(), dur = 1400;
+    const step = t => {
+        const k = Math.min((t - t0) / dur, 1);
+        el.textContent = pre + Math.round(end * (1 - Math.pow(1 - k, 3))) + suf;
+        if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
+const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add("in");
+        en.target.querySelectorAll("[data-count]").forEach(countUp);
+        io.unobserve(en.target);
+    });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* Theme: follow the system unless the visitor picks one. */
+const root = document.documentElement, toggle = $("themeToggle");
+const isDark = () => (root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+const syncToggle = () => toggle.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode");
+if (localStorage.getItem("theme")) root.dataset.theme = localStorage.getItem("theme");
+syncToggle();
+toggle.addEventListener("click", () => {
+    root.dataset.theme = isDark() ? "light" : "dark";
+    localStorage.setItem("theme", root.dataset.theme);
+    syncToggle();
+});
+
+/* Mobile menu */
+const menuBtn = $("menuBtn"), links = $("navLinks");
+menuBtn.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "✕" : "☰";
+});
+links.addEventListener("click", e => {
+    if (e.target.tagName === "A") { links.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.textContent = "☰"; }
+});
+</script>
 </body>
 </html>
