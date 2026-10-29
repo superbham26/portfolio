@@ -4,339 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <title>Shubham Jain — Forward Deployed Engineer</title>
-    <meta name="description" content="Shubham Jain, Forward Deployed Engineer building production agentic AI and prescriptive ML for heavy manufacturing: supervisor-agent systems, digital twins, and forecasting with optimization.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Shubham Jain — Forward Deployed Engineer">
-    <meta property="og:description" content="Production agentic AI and prescriptive ML for heavy manufacturing, built on the plant floor with operators.">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%23ffffff'%3ESJ%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Shubham Jain, Forward Deployed Engineer building production agentic AI and prescriptive ML for heavy manufacturing: supervisor-agent systems, digital twins, and forecasting with optimization.">
+<link rel="canonical" href="https://superbham26.github.io/portfolio/">
+
+<!-- Social previews (LinkedIn, Slack, X, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://superbham26.github.io/portfolio/">
+<meta property="og:site_name" content="Shubham Jain">
+<meta property="og:title" content="Shubham Jain — Forward Deployed Engineer">
+<meta property="og:description" content="Production agentic AI and prescriptive ML for heavy manufacturing, built on the plant floor with operators.">
+<meta property="og:image" content="https://superbham26.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shubham Jain, Forward Deployed Engineer: builds systems people use every day.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' text-anchor='middle' fill='%23ffffff'%3ESJ%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shubham Jain",
+    "jobTitle": "Forward Deployed Engineer",
+    "url": "https://superbham26.github.io/portfolio/",
+    "image": "https://superbham26.github.io/portfolio/assets/og-image.png",
+    "sameAs": ["https://www.linkedin.com/in/shubham-jain26"],
+    "worksFor": { "@type": "Organization", "name": "Aditya Birla Management Corporation" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Plaksha University" },
+    "knowsAbout": ["Agentic AI", "Retrieval-augmented generation", "Forecasting", "Optimization", "Digital twins", "Databricks"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-/* ---------- Tokens ---------- */
-:root {
-    --bg: #ffffff;
-    --bg-alt: #f5f5f7;
-    --tile: #f5f5f7;
-    --tile-2: #e8e8ed;
-    --text: #1d1d1f;
-    --text-2: #6e6e73;
-    --hair: rgba(0, 0, 0, 0.12);
-    --accent: #0071e3;
-    --accent-text: #0066cc;
-    --glass: rgba(255, 255, 255, 0.72);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --lift: 0 18px 40px rgba(0, 0, 0, 0.08);
-    --g1: linear-gradient(100deg, #e8501c, #c2185b);
-    --g2: linear-gradient(100deg, #0071e3, #6e3ff3);
-    --g3: linear-gradient(100deg, #0a8f5b, #00798a);
-    --g4: linear-gradient(100deg, #8e3ad6, #c2185b);
-    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
-}
-:root[data-theme="dark"], .on-dark {
-    --bg: #000000;
-    --bg-alt: #161617;
-    --tile: #1c1c1e;
-    --tile-2: #2c2c2e;
-    --text: #f5f5f7;
-    --text-2: #a1a1a6;
-    --hair: rgba(255, 255, 255, 0.16);
-    --accent-text: #2997ff;
-    --glass: rgba(22, 22, 23, 0.72);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --lift: 0 18px 40px rgba(0, 0, 0, 0.5);
-    --g1: linear-gradient(100deg, #ff7a45, #ff4f8b);
-    --g2: linear-gradient(100deg, #2997ff, #a07bff);
-    --g3: linear-gradient(100deg, #30d158, #40c8e0);
-    --g4: linear-gradient(100deg, #bf5af2, #ff4f8b);
-}
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #000000;
-        --bg-alt: #161617;
-        --tile: #1c1c1e;
-        --tile-2: #2c2c2e;
-        --text: #f5f5f7;
-        --text-2: #a1a1a6;
-        --hair: rgba(255, 255, 255, 0.16);
-        --accent-text: #2997ff;
-        --glass: rgba(22, 22, 23, 0.72);
-        --glass-border: rgba(255, 255, 255, 0.1);
-        --lift: 0 18px 40px rgba(0, 0, 0, 0.5);
-        --g1: linear-gradient(100deg, #ff7a45, #ff4f8b);
-        --g2: linear-gradient(100deg, #2997ff, #a07bff);
-        --g3: linear-gradient(100deg, #30d158, #40c8e0);
-        --g4: linear-gradient(100deg, #bf5af2, #ff4f8b);
-    }
-}
-@media (prefers-contrast: more) {
-    :root, :root[data-theme="dark"], .on-dark { --hair: currentColor; }
-    :root:not([data-theme="dark"]) { --text-2: #3a3a3c; }
-    :root[data-theme="dark"], .on-dark { --text-2: #d1d1d6; }
-    .tile { outline: 1px solid var(--text); }
-}
-
-/* ---------- Base ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 64px; }
-body {
-    font-family: var(--font);
-    font-size: 17px;
-    line-height: 1.47;
-    letter-spacing: -0.01em;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-}
-body:has(dialog[open]) { overflow: hidden; }
-a { color: var(--accent-text); text-decoration: none; }
-a:hover { text-decoration: underline; }
-ul { list-style: none; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-.wrap { max-width: 1024px; margin: 0 auto; padding: 0 22px; }
-.on-dark { background: var(--bg); color: var(--text); }
-.alt { background: var(--bg-alt); }
-.muted { color: var(--text-2); }
-.skip { position: absolute; left: -9999px; }
-.skip:focus { left: 16px; top: 12px; z-index: 100; background: var(--bg); padding: 8px 14px; border-radius: 8px; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-/* ---------- Glass nav (functional layer only) ---------- */
-.nav {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--glass);
-    -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    backdrop-filter: blur(24px) saturate(1.4);
-    border-bottom: 1px solid var(--glass-border);
-}
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .nav { background: var(--bg); } }
-@media (prefers-reduced-transparency: reduce) { .nav { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; } }
-@media (prefers-contrast: more) { .nav { background: var(--bg); border-bottom-color: var(--text); } }
-.nav-inner { max-width: 1024px; margin: 0 auto; padding: 0 22px; height: 52px; display: flex; align-items: center; gap: 24px; }
-.brand { font-weight: 600; font-size: 19px; color: var(--text); letter-spacing: -0.02em; }
-.brand:hover { text-decoration: none; }
-.nav nav { margin-left: auto; }
-.nav ul { display: flex; gap: 28px; }
-.nav ul a { color: var(--text); font-size: 14px; opacity: 0.85; display: inline-flex; align-items: center; min-height: 44px; }
-.nav ul a:hover { opacity: 1; text-decoration: none; }
-.icon-btn {
-    width: 44px; height: 44px; border: 0; background: transparent; color: var(--text);
-    font-size: 18px; cursor: pointer; border-radius: 50%; flex: none;
-}
-.icon-btn:hover { background: var(--hair); }
-.menu-btn { display: none; }
-
-/* ---------- Buttons ---------- */
-.actions { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; }
-.center { justify-content: center; }
-.btn {
-    display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
-    padding: 0 24px; border-radius: 980px; background: var(--accent); color: #fff;
-    font-size: 17px; font-weight: 500; border: 0; cursor: pointer;
-}
-.btn:hover { text-decoration: none; filter: brightness(1.08); }
-.link {
-    display: inline-flex; align-items: center; gap: 4px; min-height: 44px;
-    color: var(--accent-text); font-size: 17px; background: none; border: 0; cursor: pointer; font-family: inherit;
-}
-
-/* ---------- Gradient figures (signature) ---------- */
-.fig { font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--text); }
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-    .fig { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .fig.g1 { background-image: var(--g1); }
-    .fig.g2 { background-image: var(--g2); }
-    .fig.g3 { background-image: var(--g3); }
-    .fig.g4 { background-image: var(--g4); }
-}
-@media (prefers-contrast: more) { .fig { background: none !important; -webkit-text-fill-color: currentColor; } }
-.fig .unit { font-size: 0.4em; font-weight: 500; letter-spacing: 0; color: var(--text-2); -webkit-text-fill-color: currentColor; }
-
-/* ---------- Story: hero ---------- */
-.hero { text-align: center; padding: clamp(88px, 14vw, 160px) 0 clamp(72px, 10vw, 120px); }
-.hero .eyebrow { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; margin-bottom: 14px; }
-.hero h1 { font-size: clamp(48px, 8.4vw, 96px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; }
-.hero .tagline { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); margin: 22px auto 0; max-width: 720px; }
-.hero .pitch { color: var(--text-2); max-width: 620px; margin: 18px auto 36px; }
-
-/* ---------- Story: stats ---------- */
-.stats { padding: clamp(64px, 9vw, 100px) 0; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 24px; text-align: center; }
-.stat .fig { font-size: clamp(44px, 6vw, 64px); }
-.stat p { color: var(--text-2); margin-top: 10px; }
-
-/* ---------- Section headings ---------- */
-.section-head { padding-block: clamp(80px, 11vw, 130px) clamp(48px, 6vw, 72px); }
-.section-title { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
-.section-sub { color: var(--text-2); font-size: clamp(19px, 2.2vw, 24px); margin-top: 12px; max-width: 680px; }
-
-/* ---------- Story: project bands ---------- */
-.band { text-align: center; padding: clamp(88px, 12vw, 150px) 0; }
-.band .kicker { font-size: 17px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; }
-.band h3 { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
-.band .summary { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); max-width: 680px; margin: 16px auto 0; }
-.band .fig { font-size: clamp(88px, 16vw, 180px); margin-top: clamp(40px, 6vw, 64px); }
-.band .fig-label { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; margin-top: 12px; }
-.tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
-.tag { font-size: 14px; padding: 6px 14px; border-radius: 980px; border: 1px solid var(--hair); color: var(--text-2); }
-.band .link { margin-top: 20px; }
-
-/* ---------- Bento body ---------- */
-.bento {
-    max-width: 1024px; margin: 0 auto; padding: 0 22px clamp(80px, 10vw, 120px);
-    display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(210px, auto);
-    grid-auto-flow: dense; gap: 16px;
-}
-.tile {
-    position: relative; background: var(--tile); border-radius: 28px; padding: 28px;
-    display: flex; flex-direction: column; overflow: hidden; isolation: isolate;
-    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease;
-}
-.w2 { grid-column: span 2; }
-.w4 { grid-column: span 4; }
-.h2 { grid-row: span 2; }
-.tile .kicker { font-size: 14px; font-weight: 600; color: var(--text-2); }
-.tile h2, .tile h3 { letter-spacing: -0.02em; line-height: 1.15; }
-.tile h3 { font-size: 24px; margin-top: 6px; }
-.tile .grow { margin-top: auto; }
-.tile .fig { font-size: 40px; padding-top: 20px; }
-.tile .fig-label { font-size: 15px; color: var(--text-2); margin-top: 6px; }
-
-/* Openable tiles: the whole tile opens the sheet. */
-.tile.openable { cursor: pointer; }
-.tile.openable:hover { transform: translateY(-4px); box-shadow: var(--lift); }
-.tile.openable .fig-label { padding-right: 44px; }
-.tile-open {
-    position: absolute; right: 20px; bottom: 20px; width: 36px; height: 36px; border-radius: 50%;
-    border: 0; background: var(--tile-2); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer;
-    display: grid; place-items: center; transition: transform 0.3s ease;
-}
-.tile-open:focus-visible { outline: none; }
-.tile.openable:has(.tile-open:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
-.tile.openable:hover .tile-open { transform: rotate(90deg); }
-
-/* Experience tile */
-.xp h3 { font-size: clamp(26px, 3vw, 34px); }
-.xp-list { margin-top: 20px; }
-.xp-list li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--hair); }
-.xp-list b { font-weight: 600; display: block; }
-.xp-list span { color: var(--text-2); font-size: 15px; white-space: nowrap; }
-.xp-list li:last-child { padding-right: 44px; }
-.path { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; }
-.path span { padding: 5px 11px; border-radius: 980px; background: var(--tile-2); }
-.path span:last-child { background: var(--accent); color: #fff; }
-.path i { font-style: normal; color: var(--text-2); }
-
-/* Chips */
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.chip { font-size: 14px; padding: 6px 13px; border-radius: 980px; background: var(--tile-2); }
-
-/* Education & certs */
-.edu .fig { font-size: 52px; white-space: nowrap; }
-.certs { margin-top: 10px; }
-.certs li { padding: 9px 0; border-top: 1px solid var(--hair); font-size: 15px; display: flex; gap: 10px; }
-.certs li:first-child { border-top: 0; }
-.certs li::before { content: "✓"; color: var(--accent-text); font-weight: 700; }
-
-/* Contact */
-.contact { padding: clamp(36px, 6vw, 64px); flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.contact h2 { font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.035em; line-height: 1.05; }
-.contact p { color: var(--text-2); margin-top: 12px; max-width: 520px; }
-.status { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-2); margin-bottom: 14px; }
-.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #30d158; box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.2); }
-
-footer { padding: 28px 0 40px; font-size: 12px; color: var(--text-2); }
-footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--hair); padding-top: 18px; }
-
-/* ---------- Sheet ---------- */
-dialog.sheet {
-    border: 0; padding: 0; margin: auto; color: var(--text); background: var(--bg);
-    width: min(680px, calc(100% - 32px)); max-width: 100%; max-height: min(86vh, 880px);
-    border-radius: 28px; overflow: auto; overscroll-behavior: contain;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.35);
-}
-dialog.sheet::backdrop { background: rgba(0, 0, 0, 0.35); }
-dialog.sheet[open] { animation: pop 0.38s cubic-bezier(0.2, 0.8, 0.2, 1); }
-@keyframes pop { from { opacity: 0; transform: translateY(24px) scale(0.97); } }
-@keyframes slide-up { from { transform: translateY(100%); } }
-.sheet-head {
-    position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; padding: 10px 12px;
-    background: var(--glass);
-    -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    backdrop-filter: blur(24px) saturate(1.4);
-}
-@media (prefers-reduced-transparency: reduce) { .sheet-head { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; } }
-@media (prefers-contrast: more) { .sheet-head { background: var(--bg); border-bottom: 1px solid var(--text); } }
-.sheet-head .icon-btn { background: var(--tile); font-size: 16px; }
-.grabber { display: none; }
-.sheet-body { padding: 0 40px 44px; }
-.sheet-body .kicker { font-size: 15px; font-weight: 600; color: var(--text-2); }
-.sheet-body h2 { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.03em; line-height: 1.1; margin-top: 4px; }
-.sheet-body .fig { font-size: clamp(64px, 10vw, 96px); margin-top: 28px; }
-.sheet-body .fig-label { font-weight: 600; margin-top: 8px; }
-.sheet-body .lead { font-size: 21px; color: var(--text-2); margin-top: 24px; }
-.sheet-body .chip { background: var(--tile); }
-.plain { margin-top: 24px; padding: 18px 20px; border-radius: 16px; background: var(--tile); color: var(--text-2); font-style: italic; }
-.sheet-section { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hair); }
-.sheet-section h3 { font-size: 21px; letter-spacing: -0.015em; }
-.sheet-section .meta { color: var(--text-2); font-size: 15px; }
-.role { margin-top: 16px; }
-.role h4 { font-size: 17px; }
-.role h4 span { font-weight: 400; color: var(--text-2); }
-.role li { position: relative; padding-left: 18px; color: var(--text-2); margin-top: 8px; }
-.role li::before { content: ""; position: absolute; left: 2px; top: 0.7em; width: 6px; height: 6px; border-radius: 50%; background: var(--text-2); }
-
-/* ---------- Motion ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .tile, .tile-open { transition: none; }
-    .tile.openable:hover, .tile.openable:hover .tile-open { transform: none; }
-    dialog.sheet[open] { animation: none; }
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 1068px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .bento { grid-template-columns: repeat(2, 1fr); }
-    .w4 { grid-column: span 2; }
-}
-@media (max-width: 734px) {
-    .menu-btn { display: inline-block; }
-    .nav ul {
-        display: none; position: absolute; top: 52px; left: 0; right: 0;
-        flex-direction: column; gap: 0; padding: 8px 22px 16px;
-        background: var(--bg); border-bottom: 1px solid var(--hair);
-    }
-    .nav ul.open { display: flex; }
-    .nav ul a { font-size: 21px; width: 100%; border-bottom: 1px solid var(--hair); min-height: 52px; }
-    .actions .btn { width: 100%; }
-
-    .bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }
-    .w2, .w4 { grid-column: span 1; }
-    .h2 { grid-row: span 1; }
-    .tile { padding: 24px; min-height: 180px; }
-    .xp-list li { flex-direction: column; gap: 2px; }
-    .contact { flex-direction: column; align-items: flex-start; }
-
-    dialog.sheet { width: 100%; margin: auto 0 0; max-height: 92vh; border-radius: 28px 28px 0 0; }
-    dialog.sheet[open] { animation-name: slide-up; }
-    .sheet-head { justify-content: space-between; align-items: center; }
-    .grabber { display: block; width: 40px; height: 5px; border-radius: 3px; background: var(--hair); margin-left: calc(50% - 32px); }
-    .sheet-body { padding: 0 24px 36px; }
-}
-</style>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/init.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
     <div class="nav-inner">
-        <a class="brand" href="#top" id="brand"></a>
+        <a class="brand" href="#top" id="brand">SJ</a>
         <nav aria-label="Primary">
             <ul id="navLinks">
                 <li><a href="#work">Work</a></li>
@@ -356,27 +71,48 @@ dialog.sheet[open] { animation: pop 0.38s cubic-bezier(0.2, 0.8, 0.2, 1); }
     <!-- Story intro -->
     <section class="hero" id="top">
         <div class="wrap">
-            <p class="eyebrow" id="heroEyebrow"></p>
+            <p class="eyebrow" id="heroEyebrow">Shubham Jain · Forward Deployed Engineer</p>
             <h1 class="reveal">Builds systems<br>people use every day.</h1>
-            <p class="tagline reveal" id="heroTagline"></p>
-            <p class="pitch reveal" id="heroPitch"></p>
+            <p class="tagline reveal" id="heroTagline">Agentic AI &amp; prescriptive ML for manufacturing.</p>
+            <p class="pitch reveal" id="heroPitch">I embed with plant operators, scope the problem on the ground, and ship what they end up using every day: supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational data apps running inside a legacy alumina plant.</p>
             <div class="actions center reveal">
                 <a class="btn" href="#contact">Let's talk</a>
-                <a class="link" id="cvLink" download="Shubham_Jain_Resume.pdf">Download CV ›</a>
+                <a class="link" id="cvLink" href="resume.pdf" download="Shubham_Jain_Resume.pdf">Download CV ›</a>
             </div>
         </div>
-    </section>
-
-    <section class="stats alt" aria-label="Impact by the numbers">
-        <div class="wrap"><div class="stats-grid" id="stats"></div></div>
     </section>
 
     <section id="work">
         <div class="wrap section-head">
             <h2 class="section-title reveal">Selected work.</h2>
             <p class="section-sub reveal">Systems shipped to production, measured by what changed on the ground.</p>
+            <div class="work-index reveal">
+                <article class="tile openable index-card g1">
+                    <p class="kicker">Agentic AI</p>
+                    <h3>Supervisor-Agent AI System</h3>
+                    <div class="grow"><div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div><p class="fig-label">hours/year of first-time-right production</p></div>
+                    <button class="tile-open" type="button" data-open="project:0" aria-label="Open details: Supervisor-Agent AI System" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g2">
+                    <p class="kicker">Simulation &amp; optimization</p>
+                    <h3>Calcination Digital Twin</h3>
+                    <div class="grow"><div class="fig g2">Daily</div><p class="fig-label">used by plant operators</p></div>
+                    <button class="tile-open" type="button" data-open="project:1" aria-label="Open details: Calcination Digital Twin" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g3">
+                    <p class="kicker">Fraud detection</p>
+                    <h3>AI Claims Engine</h3>
+                    <div class="grow"><div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div><p class="fig-label">less manual processing · 18% accuracy uplift</p></div>
+                    <button class="tile-open" type="button" data-open="project:2" aria-label="Open details: AI Claims Engine" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g4">
+                    <p class="kicker">Spatiotemporal ML</p>
+                    <h3>Disease Hotspot Forecasting</h3>
+                    <div class="grow"><div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div><p class="fig-label">business value generated</p></div>
+                    <button class="tile-open" type="button" data-open="project:3" aria-label="Open details: Disease Hotspot Forecasting" aria-haspopup="dialog">+</button>
+                </article>
+            </div>
         </div>
-        <div id="bands"></div>
     </section>
 
     <!-- Bento body -->
@@ -385,13 +121,218 @@ dialog.sheet[open] { animation: pop 0.38s cubic-bezier(0.2, 0.8, 0.2, 1); }
             <h2 class="section-title reveal" id="aboutTitle">At a glance.</h2>
             <p class="section-sub reveal">More projects, where I've worked, and what I work with. Tap any tile for details.</p>
         </div>
-        <div class="bento" id="bento"></div>
+        <div class="bento" id="bento">
+                <article class="tile openable reveal">
+                    <p class="kicker">Databricks App</p>
+                    <h3>Conversational Plant Data App</h3>
+                    <div class="grow"><div class="fig g2">Self-serve</div><p class="fig-label">process data, operator to leadership</p></div>
+                    <button class="tile-open" type="button" data-open="project:4" aria-label="Open details: Conversational Plant Data App" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Forecasting &amp; optimization</p>
+                    <h3>SSA Forecast &amp; Prescribe Engine</h3>
+                    <div class="grow"><div class="fig g1">↑ FTR</div><p class="fig-label">raised first-time-right rates</p></div>
+                    <button class="tile-open" type="button" data-open="project:5" aria-label="Open details: SSA Forecast &amp; Prescribe Engine" aria-haspopup="dialog">+</button>
+                </article>
+            <article class="tile openable xp w2 h2 reveal">
+                <p class="kicker">Experience</p>
+                <h3>Embedded where the work happens.</h3>
+                <div class="path" aria-label="Career path"><span>Trainee</span><i aria-hidden='true'>→</i><span>Data Scientist</span><i aria-hidden='true'>→</i><span>FDE</span></div>
+                <ul class="xp-list grow">
+                    <li><div><b>Aditya Birla Management Corporation</b><span>Forward Deployed Engineer</span></div><span>Jan 2025 – Present</span></li><li><div><b>Fractal Analytics</b><span>Business Analyst Intern</span></div><span>May 2024 – Jul 2024</span></li><li><div><b>Subhkam Ventures</b><span>Quant Analyst Intern</span></div><span>Jun 2023 – Jul 2023</span></li>
+                </ul>
+                <button class="tile-open" type="button" data-open="experience" aria-label="Open full experience timeline" aria-haspopup="dialog">+</button>
+            </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Agentic AI</p>
+                    <h3>NL2SQL Agent</h3>
+                    <div class="grow"><div class="fig g4">1st</div><p class="fig-label">GDNA Hackathon 2026 winner</p></div>
+                    <button class="tile-open" type="button" data-open="project:6" aria-label="Open details: NL2SQL Agent" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable reveal">
+                    <p class="kicker">Quant research</p>
+                    <h3>Quant Trading Platform</h3>
+                    <div class="grow"><div class="fig g3"><span aria-hidden="true" data-count="15" data-pre="+" data-suf="%">+15%</span><span class="sr-only">+15%</span></div><p class="fig-label">vs NIFTY50 · 25% return improvement</p></div>
+                    <button class="tile-open" type="button" data-open="project:7" aria-label="Open details: Quant Trading Platform" aria-haspopup="dialog">+</button>
+                </article>
+            <article class="tile openable w2 reveal" id="stack">
+                <p class="kicker">Stack</p>
+                <h3>Agents, forecasting and optimization, shipped on Databricks.</h3>
+                <div class="chips"><span class="chip">Multi-Agent Orchestration</span><span class="chip">RAG</span><span class="chip">LangGraph</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">DoubleML</span><span class="chip">GA / PSO</span><span class="chip">Digital Twins</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">Azure DevOps</span></div>
+                <button class="tile-open" type="button" data-open="skills" aria-label="Open full tech stack" aria-haspopup="dialog">+</button>
+            </article>
+            <article class="tile edu reveal">
+                <p class="kicker">Education · 2021 – 2025</p>
+                <h3>B.Tech, Data Science, Economics &amp; Business</h3>
+                <p class="muted">Plaksha University</p>
+                <div class="grow fig g2">9.0<span class="unit"> / 10 CGPA</span></div>
+            </article>
+            <article class="tile reveal">
+                <p class="kicker">Certifications</p>
+                <ul class="certs"><li>Databricks GenAI Engineer Associate (2026)</li><li>Databricks ML Associate</li><li>GDNA Hackathon 2026 Winner</li><li>VMart Scholarship — Top 1%</li><li>Toastmasters Speechcrafter (2025)</li></ul>
+            </article>
+            <section class="tile contact on-dark w4 reveal" id="contact" aria-labelledby="contactTitle">
+                <div>
+                    <p class="status">Open to opportunities</p>
+                    <h2 id="contactTitle">Let's build something real.</h2>
+                    <p>Interested in roles where I can solve complex business challenges and create measurable impact.</p>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="mailto:shubhamajay2@gmail.com">Email me</a>
+                    <a class="link" href="https://www.linkedin.com/in/shubham-jain26" target="_blank" rel="noopener noreferrer">LinkedIn ›</a>
+                    <a class="link" href="resume.pdf" download="Shubham_Jain_Resume.pdf">Résumé ›</a>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- Detail content: shown in the sheet with JS, listed in full without it -->
+    <section class="details wrap" aria-label="Details">
+        <article class="sheet-body" data-detail="project:0">
+            <p class="kicker">Agentic AI</p>
+            <h2>Supervisor-Agent AI System</h2>
+            <div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div>
+            <p class="fig-label">hours/year of first-time-right production</p>
+            <p class="lead">One agent that routes every plant question to the right tool, and remembers the answer.</p>
+            <div class="sheet-section"><p>Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.</p></div>
+            <p class="plain">A middle manager for AI agents, except it actually delegates well. Analysts got their afternoons back.</p>
+            <div class="chips"><span class="chip">RAG</span><span class="chip">Vector Search</span><span class="chip">Genie Spaces</span><span class="chip">Lakebase memory</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:1">
+            <p class="kicker">Simulation &amp; optimization</p>
+            <h2>Calcination Digital Twin</h2>
+            <div class="fig g2">Daily</div>
+            <p class="fig-label">used by plant operators</p>
+            <p class="lead">A virtual calciner that tries every trade-off first, so the real plant doesn't have to.</p>
+            <div class="sheet-section"><p>Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.</p></div>
+            <p class="plain">Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant a helpful twin.</p>
+            <div class="chips"><span class="chip">Sensor fusion</span><span class="chip">ML models</span><span class="chip">Simulation</span><span class="chip">Multi-objective</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:2">
+            <p class="kicker">Fraud detection</p>
+            <h2>AI Claims Engine</h2>
+            <div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div>
+            <p class="fig-label">less manual processing · 18% accuracy uplift</p>
+            <p class="lead">Flags suspicious insurance claims before an investigator has to dig.</p>
+            <div class="sheet-section"><p>LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end to end. Language models handle document understanding and feed an XGBoost fraud classifier.</p></div>
+            <p class="plain">Taught AI to read insurance claims like a skeptical detective.</p>
+            <div class="chips"><span class="chip">Fraud detection</span><span class="chip">Document understanding</span><span class="chip">End-to-end deployment</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:3">
+            <p class="kicker">Spatiotemporal ML</p>
+            <h2>Disease Hotspot Forecasting</h2>
+            <div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div>
+            <p class="fig-label">business value generated</p>
+            <p class="lead">Multi-week risk forecasts that flag outbreaks before they happen.</p>
+            <div class="sheet-section"><p>Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.</p></div>
+            <p class="plain">A crystal ball for disease outbreaks. No magic involved, just spatiotemporal ML.</p>
+            <div class="chips"><span class="chip">Geospatial</span><span class="chip">Time series</span><span class="chip">Feature engineering</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:4">
+            <p class="kicker">Databricks App</p>
+            <h2>Conversational Plant Data App</h2>
+            <div class="fig g2">Self-serve</div>
+            <p class="fig-label">process data, operator to leadership</p>
+            <p class="lead">Operators ask in plain English; leadership gets its own view.</p>
+            <div class="sheet-section"><p>Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.</p></div>
+            <p class="plain">Plant data, but you can just talk to it. Nobody has to pretend they understand the other's dashboard anymore.</p>
+            <div class="chips"><span class="chip">Databricks Apps</span><span class="chip">Streamlit</span><span class="chip">React</span><span class="chip">KPI hierarchy</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:5">
+            <p class="kicker">Forecasting &amp; optimization</p>
+            <h2>SSA Forecast &amp; Prescribe Engine</h2>
+            <div class="fig g1">↑ FTR</div>
+            <p class="fig-label">raised first-time-right rates</p>
+            <p class="lead">Forecasts, evolutionary search and causal ML, with a prescription-vs-actual scorecard.</p>
+            <div class="sheet-section"><p>Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.</p></div>
+            <p class="plain">Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult.</p>
+            <div class="chips"><span class="chip">LightGBM</span><span class="chip">GA / PSO</span><span class="chip">DoubleML</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:6">
+            <p class="kicker">Agentic AI</p>
+            <h2>NL2SQL Agent</h2>
+            <div class="fig g4">1st</div>
+            <p class="fig-label">GDNA Hackathon 2026 winner</p>
+            <p class="lead">Business teams query data conversationally, without SQL.</p>
+            <div class="sheet-section"><p>Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.</p></div>
+            <p class="plain">SQL is a love language most business teams don't speak. So I built an agent that translates.</p>
+            <div class="chips"><span class="chip">LLM agent</span><span class="chip">SQL</span></div>
+        </article>
+        <article class="sheet-body" data-detail="project:7">
+            <p class="kicker">Quant research</p>
+            <h2>Quant Trading Platform</h2>
+            <div class="fig g3"><span aria-hidden="true" data-count="15" data-pre="+" data-suf="%">+15%</span><span class="sr-only">+15%</span></div>
+            <p class="fig-label">vs NIFTY50 · 25% return improvement</p>
+            <p class="lead">Momentum strategies across 1,100+ equities.</p>
+            <div class="sheet-section"><p>Proprietary momentum-based trading algorithms with a systematic backtesting framework, plus portfolio optimization and risk management across a large equity universe.</p></div>
+            <p class="plain">Math beats gut feeling every time.</p>
+            <div class="chips"><span class="chip">Momentum</span><span class="chip">Backtesting</span><span class="chip">Portfolio optimization</span></div>
+        </article>
+        <article class="sheet-body" data-detail="experience">
+            <p class="kicker">Experience</p>
+            <h2>Where I've worked.</h2>
+                <div class="sheet-section">
+                    <h3>Aditya Birla Management Corporation</h3>
+                    <p class="meta">Group Data &amp; Analytics · Bengaluru · Jan 2025 – Present</p>
+                        <div class="role">
+                            <h4>Forward Deployed Engineer <span>· Jan 2026 – Present</span></h4>
+                            <ul><li>Embedded with plant operators for weeks to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end across production, quality, and energy trade-offs; operators now use it daily.</li><li>Architected and deployed a supervisor-agent system with intent classification and tool routing across RAG, Genie Spaces, and model endpoints, with session and long-term memory on Lakebase; adds 400 hours/year of first-time-right production.</li><li>Shipped a Databricks App for conversational querying of process data with role-based views, a KPI hierarchy, optimization prescriptions, alerting, and data-quality pages.</li><li>Sole owner of the stakeholder chain from plant operator to CEO, including adoption after go-live.</li></ul>
+                        </div>
+                        <div class="role">
+                            <h4>Management Trainee, Data Scientist <span>· Jul 2025 – Jan 2026</span></h4>
+                            <ul><li>Built a multi-horizon forecasting and prescriptive optimization engine for SSA in calcination (LightGBM + GA/PSO + DoubleML) with prescription-vs-actual tracking.</li><li>Shipped an LLM-SLM-XGBoost hybrid for claims fraud detection: 18% accuracy uplift, 40% less manual processing time.</li><li>Built a spatiotemporal disease-hotspot model delivering multi-week risk forecasts worth ₹5M+ in business value.</li></ul>
+                        </div>
+                        <div class="role">
+                            <h4>Data &amp; Analytics Trainee <span>· Jan 2025 – Jun 2025</span></h4>
+                            <ul><li>Fine-tuned a small language model on plant terminology for low-latency, domain-specific operations queries.</li><li>Built an OPC UA connector streaming live sensor data from 4+ lines into PostgreSQL via Databricks/PySpark, with CI on Azure DevOps.</li></ul>
+                        </div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Fractal Analytics</h3>
+                    <p class="meta">Bengaluru · May 2024 – Jul 2024</p>
+                        <div class="role">
+                            <h4>Business Analyst Intern</h4>
+                            <ul><li>Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort.</li><li>Designed and ran A/B tests to isolate high-impact customer segments across multiple touchpoints.</li></ul>
+                        </div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Subhkam Ventures</h3>
+                    <p class="meta">Mumbai · Jun 2023 – Jul 2023</p>
+                        <div class="role">
+                            <h4>Quant Analyst Intern</h4>
+                            <ul><li>Formulated quantitative strategies using moving averages and momentum indicators, achieving 15% outperformance against NIFTY50.</li><li>Deployed optimization models that raised returns by 25% on a diversified portfolio of 1,100+ cash stocks.</li></ul>
+                        </div>
+                </div>
+        </article>
+        <article class="sheet-body" data-detail="skills">
+            <p class="kicker">Stack</p>
+            <h2>Full tech stack.</h2>
+                <div class="sheet-section">
+                    <h3>GenAI &amp; Agentic AI</h3>
+                    <div class="chips"><span class="chip">Supervisor/Multi-Agent Orchestration</span><span class="chip">Intent Classification &amp; Tool Routing</span><span class="chip">RAG</span><span class="chip">Databricks Genie Spaces</span><span class="chip">Session/Long-Term Memory (Lakebase)</span><span class="chip">SLM Fine-Tuning</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Semantic Search</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Machine Learning</h3>
+                    <div class="chips"><span class="chip">Multi-Horizon Forecasting</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">Spatiotemporal Modeling</span><span class="chip">Feature Engineering</span><span class="chip">Causal Inference (DoubleML)</span><span class="chip">SHAP</span><span class="chip">A/B Testing</span><span class="chip">MLflow</span><span class="chip">Champion/Challenger</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Optimization &amp; Simulation</h3>
+                    <div class="chips"><span class="chip">Genetic Algorithms</span><span class="chip">Particle Swarm Optimization</span><span class="chip">Prescriptive Analytics</span><span class="chip">Digital Twins</span><span class="chip">Constraint Optimization</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Languages &amp; Data</h3>
+                    <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">PyTorch</span><span class="chip">SQL</span><span class="chip">PySpark</span><span class="chip">PostgreSQL</span><span class="chip">OPC UA</span></div>
+                </div>
+                <div class="sheet-section">
+                    <h3>Platforms &amp; Delivery</h3>
+                    <div class="chips"><span class="chip">Databricks</span><span class="chip">Databricks Apps (Streamlit/React)</span><span class="chip">Azure DevOps</span><span class="chip">Git</span><span class="chip">AWS</span><span class="chip">Power BI</span></div>
+                </div>
+        </article>
     </section>
 </main>
 
 <footer>
     <div class="wrap">
-        <span id="copyright"></span>
+        <span>© <span id="year">2026</span> Shubham Jain</span>
     </div>
 </footer>
 
@@ -405,343 +346,6 @@ dialog.sheet[open] { animation: pop 0.38s cubic-bezier(0.2, 0.8, 0.2, 1); }
     </div>
 </dialog>
 
-<script>
-const DATA = {
-    profile: {
-        name: "Shubham Jain",
-        initials: "SJ",
-        email: "shubhamajay2@gmail.com",
-        linkedin: "https://www.linkedin.com/in/shubham-jain26",
-        resume: "resume.pdf",
-        role: "Forward Deployed Engineer",
-        tagline: "Agentic AI & prescriptive ML for manufacturing.",
-        pitch: "I embed with plant operators, scope the problem on the ground, and ship what they end up using every day: supervisor-agent systems with RAG and memory, multi-horizon forecasting with optimization, and conversational data apps running inside a legacy alumina plant."
-    },
-    stats: [
-        { pre: "+", num: 400, suf: "", label: "hrs/year of first-time-right production", g: "g1" },
-        { pre: "", num: 40, suf: "%", label: "less manual processing time", g: "g2" },
-        { pre: "+", num: 18, suf: "%", label: "detection accuracy", g: "g3" },
-        { pre: "₹", num: 5, suf: "M+", label: "business value generated", g: "g4" }
-    ],
-    projects: [
-        {
-            title: "Supervisor-Agent AI System", kicker: "Agentic AI", featured: true, g: "g1",
-            summary: "One agent that routes every plant question to the right tool, and remembers the answer.",
-            impact: { pre: "+", num: 400, suf: "", label: "hours/year of first-time-right production" },
-            description: "Supervisor-agent architecture with intent classification and tool routing across RAG (Databricks Vector Search), Genie Spaces, and model endpoints, backed by session and long-term memory on Lakebase. Replaced manual analyst intervention in plant decision workflows.",
-            plain: "A middle manager for AI agents, except it actually delegates well. Analysts got their afternoons back.",
-            tags: ["RAG", "Vector Search", "Genie Spaces", "Lakebase memory"]
-        },
-        {
-            title: "Calcination Digital Twin", kicker: "Simulation & optimization", featured: true, g: "g2",
-            summary: "A virtual calciner that tries every trade-off first, so the real plant doesn't have to.",
-            impact: { text: "Daily", label: "used by plant operators" },
-            description: "Analytics layer of a calcination digital twin, built end to end: high-frequency sensor data fused with ML models for simulation-based optimization across production, quality, and energy trade-offs.",
-            plain: "Moved into an alumina plant for weeks, learned to speak fluent operator, then built the plant a helpful twin.",
-            tags: ["Sensor fusion", "ML models", "Simulation", "Multi-objective"]
-        },
-        {
-            title: "AI Claims Engine", kicker: "Fraud detection", featured: true, g: "g3",
-            summary: "Flags suspicious insurance claims before an investigator has to dig.",
-            impact: { pre: "", num: 40, suf: "%", label: "less manual processing · 18% accuracy uplift" },
-            description: "LLM-SLM-XGBoost hybrid for insurance claims fraud detection, designed, trained, and deployed end to end. Language models handle document understanding and feed an XGBoost fraud classifier.",
-            plain: "Taught AI to read insurance claims like a skeptical detective.",
-            tags: ["Fraud detection", "Document understanding", "End-to-end deployment"]
-        },
-        {
-            title: "Disease Hotspot Forecasting", kicker: "Spatiotemporal ML", featured: true, g: "g4",
-            summary: "Multi-week risk forecasts that flag outbreaks before they happen.",
-            impact: { pre: "₹", num: 5, suf: "M+", label: "business value generated" },
-            description: "Spatiotemporal ML model for early disease hotspot detection, built on geospatial and time-series feature engineering, delivering multi-week risk forecasts for proactive underwriting.",
-            plain: "A crystal ball for disease outbreaks. No magic involved, just spatiotemporal ML.",
-            tags: ["Geospatial", "Time series", "Feature engineering"]
-        },
-        {
-            title: "Conversational Plant Data App", kicker: "Databricks App", g: "g2",
-            summary: "Operators ask in plain English; leadership gets its own view.",
-            impact: { text: "Self-serve", label: "process data, operator to leadership" },
-            description: "Databricks App (Streamlit/React) for conversational querying of process data, with role-based operator and leadership views, a KPI hierarchy (FTR, throughput), optimization prescriptions, alerting, and data-quality pages.",
-            plain: "Plant data, but you can just talk to it. Nobody has to pretend they understand the other's dashboard anymore.",
-            tags: ["Databricks Apps", "Streamlit", "React", "KPI hierarchy"]
-        },
-        {
-            title: "SSA Forecast & Prescribe Engine", kicker: "Forecasting & optimization", g: "g1",
-            summary: "Forecasts, evolutionary search and causal ML, with a prescription-vs-actual scorecard.",
-            impact: { text: "↑ FTR", label: "raised first-time-right rates" },
-            description: "Multi-horizon forecasting and prescriptive optimization for Specific Surface Area (SSA) in calcination: LightGBM forecasts paired with GA/PSO search and DoubleML causal estimates, with prescription-vs-actual tracking.",
-            plain: "Forecasting, plus a swarm of particles, plus a little Darwinian evolution, with causal ML as the designated adult.",
-            tags: ["LightGBM", "GA / PSO", "DoubleML"]
-        },
-        {
-            title: "NL2SQL Agent", kicker: "Agentic AI", g: "g4",
-            summary: "Business teams query data conversationally, without SQL.",
-            impact: { text: "1st", label: "GDNA Hackathon 2026 winner" },
-            description: "Natural-language-to-SQL agent that lets business teams query data conversationally, without writing SQL or waiting on an analyst.",
-            plain: "SQL is a love language most business teams don't speak. So I built an agent that translates.",
-            tags: ["LLM agent", "SQL"]
-        },
-        {
-            title: "Quant Trading Platform", kicker: "Quant research", g: "g3",
-            summary: "Momentum strategies across 1,100+ equities.",
-            impact: { pre: "+", num: 15, suf: "%", label: "vs NIFTY50 · 25% return improvement" },
-            description: "Proprietary momentum-based trading algorithms with a systematic backtesting framework, plus portfolio optimization and risk management across a large equity universe.",
-            plain: "Math beats gut feeling every time.",
-            tags: ["Momentum", "Backtesting", "Portfolio optimization"]
-        }
-    ],
-    experience: [
-        {
-            company: "Aditya Birla Management Corporation", unit: "Group Data & Analytics",
-            dates: "Jan 2025 – Present", place: "Bengaluru",
-            path: ["Trainee", "Data Scientist", "FDE"],
-            roles: [
-                { title: "Forward Deployed Engineer", dates: "Jan 2026 – Present", points: [
-                    "Embedded with plant operators for weeks to scope the problem on the ground, then led the analytics layer of a calcination digital twin end to end across production, quality, and energy trade-offs; operators now use it daily.",
-                    "Architected and deployed a supervisor-agent system with intent classification and tool routing across RAG, Genie Spaces, and model endpoints, with session and long-term memory on Lakebase; adds 400 hours/year of first-time-right production.",
-                    "Shipped a Databricks App for conversational querying of process data with role-based views, a KPI hierarchy, optimization prescriptions, alerting, and data-quality pages.",
-                    "Sole owner of the stakeholder chain from plant operator to CEO, including adoption after go-live."
-                ] },
-                { title: "Management Trainee, Data Scientist", dates: "Jul 2025 – Jan 2026", points: [
-                    "Built a multi-horizon forecasting and prescriptive optimization engine for SSA in calcination (LightGBM + GA/PSO + DoubleML) with prescription-vs-actual tracking.",
-                    "Shipped an LLM-SLM-XGBoost hybrid for claims fraud detection: 18% accuracy uplift, 40% less manual processing time.",
-                    "Built a spatiotemporal disease-hotspot model delivering multi-week risk forecasts worth ₹5M+ in business value."
-                ] },
-                { title: "Data & Analytics Trainee", dates: "Jan 2025 – Jun 2025", points: [
-                    "Fine-tuned a small language model on plant terminology for low-latency, domain-specific operations queries.",
-                    "Built an OPC UA connector streaming live sensor data from 4+ lines into PostgreSQL via Databricks/PySpark, with CI on Azure DevOps."
-                ] }
-            ]
-        },
-        {
-            company: "Fractal Analytics", dates: "May 2024 – Jul 2024", place: "Bengaluru",
-            roles: [{ title: "Business Analyst Intern", dates: "", points: [
-                "Translated B2B campaign data into predictive and clustering models with client stakeholders, driving a 10% lift in lead conversion for a high-value cohort.",
-                "Designed and ran A/B tests to isolate high-impact customer segments across multiple touchpoints."
-            ] }]
-        },
-        {
-            company: "Subhkam Ventures", dates: "Jun 2023 – Jul 2023", place: "Mumbai",
-            roles: [{ title: "Quant Analyst Intern", dates: "", points: [
-                "Formulated quantitative strategies using moving averages and momentum indicators, achieving 15% outperformance against NIFTY50.",
-                "Deployed optimization models that raised returns by 25% on a diversified portfolio of 1,100+ cash stocks."
-            ] }]
-        }
-    ],
-    skills: [
-        { group: "GenAI & Agentic AI", items: ["Supervisor/Multi-Agent Orchestration", "Intent Classification & Tool Routing", "RAG", "Databricks Genie Spaces", "Session/Long-Term Memory (Lakebase)", "SLM Fine-Tuning", "Prompt Engineering", "LLM Evaluation", "LangChain", "LangGraph", "Semantic Search"] },
-        { group: "Machine Learning", items: ["Multi-Horizon Forecasting", "LightGBM", "XGBoost", "Spatiotemporal Modeling", "Feature Engineering", "Causal Inference (DoubleML)", "SHAP", "A/B Testing", "MLflow", "Champion/Challenger"] },
-        { group: "Optimization & Simulation", items: ["Genetic Algorithms", "Particle Swarm Optimization", "Prescriptive Analytics", "Digital Twins", "Constraint Optimization"] },
-        { group: "Languages & Data", items: ["Python", "Pandas", "NumPy", "Scikit-learn", "PyTorch", "SQL", "PySpark", "PostgreSQL", "OPC UA"] },
-        { group: "Platforms & Delivery", items: ["Databricks", "Databricks Apps (Streamlit/React)", "Azure DevOps", "Git", "AWS", "Power BI"] }
-    ],
-    topSkills: ["Multi-Agent Orchestration", "RAG", "LangGraph", "LightGBM", "XGBoost", "DoubleML", "GA / PSO", "Digital Twins", "Python", "PySpark", "Databricks", "Azure DevOps"],
-    education: {
-        degree: "B.Tech, Data Science, Economics & Business",
-        school: "Plaksha University", dates: "2021 – 2025", cgpa: "9.0",
-        coursework: "Econometrics, Machine Learning, Advanced Statistics, Behavioral Economics, Game Theory, Marketing Analytics"
-    },
-    certifications: ["Databricks GenAI Engineer Associate (2026)", "Databricks ML Associate", "GDNA Hackathon 2026 Winner", "VMart Scholarship — Top 1%", "Toastmasters Speechcrafter (2025)"]
-};
-
-const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const $ = id => document.getElementById(id);
-const P = DATA.profile, X = DATA.projects;
-
-/* Visible digits animate; screen readers get the final value. */
-function figure(f, cls) {
-    if (f.text) return `<div class="fig ${cls}">${f.text}</div>`;
-    const final = `${f.pre}${f.num}${f.suf}`;
-    return `<div class="fig ${cls}"><span aria-hidden="true" data-count="${f.num}" data-pre="${f.pre}" data-suf="${f.suf}">${final}</span><span class="sr-only">${final}</span></div>`;
-}
-const opener = (key, label) => `<button class="tile-open" type="button" data-open="${key}" aria-label="${label}" aria-haspopup="dialog">+</button>`;
-
-function projectTile(i) {
-    const x = X[i];
-    return `
-        <article class="tile openable reveal">
-            <p class="kicker">${x.kicker}</p>
-            <h3>${x.title}</h3>
-            <div class="grow">${figure(x.impact, x.g)}<p class="fig-label">${x.impact.label}</p></div>
-            ${opener(`project:${i}`, `Open details: ${x.title}`)}
-        </article>`;
-}
-
-/* ---------- Render: story intro ---------- */
-$("brand").textContent = P.initials;
-$("heroEyebrow").textContent = `${P.name} · ${P.role}`;
-$("heroTagline").textContent = P.tagline;
-$("heroPitch").textContent = P.pitch;
-$("cvLink").href = P.resume;
-$("copyright").textContent = `© ${new Date().getFullYear()} ${P.name}`;
-
-$("stats").innerHTML = DATA.stats.map(s => `
-    <div class="stat reveal">${figure(s, s.g)}<p>${s.label}</p></div>`).join("");
-
-$("bands").innerHTML = X.map((x, i) => x.featured ? `
-    <article class="band ${i % 2 ? "alt" : "on-dark"}">
-        <div class="wrap">
-            <p class="kicker reveal">${x.kicker}</p>
-            <h3 class="reveal">${x.title}</h3>
-            <p class="summary reveal">${x.summary}</p>
-            <div class="reveal">${figure(x.impact, x.g)}<p class="fig-label">${x.impact.label}</p></div>
-            <div class="tags reveal">${x.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
-            <button class="link" type="button" data-open="project:${i}" aria-haspopup="dialog">Learn more ›</button>
-        </div>
-    </article>` : "").join("");
-
-/* ---------- Render: bento body ---------- */
-const ed = DATA.education;
-const rest = X.map((x, i) => i).filter(i => !X[i].featured);
-$("bento").innerHTML = `
-    ${projectTile(rest[0])}
-    ${projectTile(rest[1])}
-
-    <article class="tile openable xp w2 h2 reveal">
-        <p class="kicker">Experience</p>
-        <h3>Embedded where the work happens.</h3>
-        <div class="path" aria-label="Career path">${DATA.experience[0].path.map(s => `<span>${s}</span>`).join("<i aria-hidden='true'>→</i>")}</div>
-        <ul class="xp-list grow">
-            ${DATA.experience.map(e => `<li><div><b>${e.company}</b><span>${e.roles[0].title}</span></div><span>${e.dates}</span></li>`).join("")}
-        </ul>
-        ${opener("experience", "Open full experience timeline")}
-    </article>
-
-    ${projectTile(rest[2])}
-    ${projectTile(rest[3])}
-
-    <article class="tile openable w2 reveal" id="stack">
-        <p class="kicker">Stack</p>
-        <h3>Agents, forecasting and optimization, shipped on Databricks.</h3>
-        <div class="chips">${DATA.topSkills.map(s => `<span class="chip">${s}</span>`).join("")}</div>
-        ${opener("skills", "Open full tech stack")}
-    </article>
-
-    <article class="tile edu reveal">
-        <p class="kicker">Education · ${ed.dates}</p>
-        <h3>${ed.degree}</h3>
-        <p class="muted">${ed.school}</p>
-        <div class="grow fig g2">${ed.cgpa}<span class="unit"> / 10 CGPA</span></div>
-    </article>
-
-    <article class="tile reveal">
-        <p class="kicker">Certifications</p>
-        <ul class="certs">${DATA.certifications.map(c => `<li>${c}</li>`).join("")}</ul>
-    </article>
-
-    <section class="tile contact on-dark w4 reveal" id="contact" aria-labelledby="contactTitle">
-        <div>
-            <p class="status">Open to opportunities</p>
-            <h2 id="contactTitle">Let's build something real.</h2>
-            <p>Interested in roles where I can solve complex business challenges and create measurable impact.</p>
-        </div>
-        <div class="actions">
-            <a class="btn" href="mailto:${P.email}">Email me</a>
-            <a class="link" href="${P.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ›</a>
-            <a class="link" href="${P.resume}" download="Shubham_Jain_Resume.pdf">Résumé ›</a>
-        </div>
-    </section>`;
-
-/* ---------- Sheet content ---------- */
-function sheetContent(key) {
-    const [type, idx] = key.split(":");
-    if (type === "project") {
-        const x = X[+idx];
-        return `
-            <p class="kicker">${x.kicker}</p>
-            <h2 id="sheetTitle">${x.title}</h2>
-            ${figure(x.impact, x.g)}
-            <p class="fig-label">${x.impact.label}</p>
-            <p class="lead">${x.summary}</p>
-            <div class="sheet-section"><p>${x.description}</p></div>
-            <p class="plain">${x.plain}</p>
-            <div class="chips">${x.tags.map(t => `<span class="chip">${t}</span>`).join("")}</div>`;
-    }
-    if (type === "experience") return `
-        <p class="kicker">Experience</p>
-        <h2 id="sheetTitle">Where I've worked.</h2>
-        ${DATA.experience.map(e => `
-            <div class="sheet-section">
-                <h3>${e.company}</h3>
-                <p class="meta">${e.unit ? e.unit + " · " : ""}${e.place} · ${e.dates}</p>
-                ${e.roles.map(r => `
-                    <div class="role">
-                        <h4>${r.title}${r.dates ? ` <span>· ${r.dates}</span>` : ""}</h4>
-                        <ul>${r.points.map(pt => `<li>${pt}</li>`).join("")}</ul>
-                    </div>`).join("")}
-            </div>`).join("")}`;
-    return `
-        <p class="kicker">Stack</p>
-        <h2 id="sheetTitle">Full tech stack.</h2>
-        ${DATA.skills.map(s => `
-            <div class="sheet-section">
-                <h3>${s.group}</h3>
-                <div class="chips">${s.items.map(i => `<span class="chip">${i}</span>`).join("")}</div>
-            </div>`).join("")}`;
-}
-
-/* ---------- Behaviour ---------- */
-const sheet = $("sheet");
-let lastOpener = null;
-
-/* Band buttons and whole bento tiles both open the same sheet. */
-document.addEventListener("click", e => {
-    if (e.target.closest("a") || sheet.contains(e.target)) return;
-    const trigger = e.target.closest("[data-open]") || e.target.closest(".tile.openable")?.querySelector("[data-open]");
-    if (!trigger) return;
-    lastOpener = trigger;
-    $("sheetBody").innerHTML = sheetContent(trigger.dataset.open);
-    sheet.showModal();
-    sheet.scrollTop = 0;
-    sheet.querySelectorAll("[data-count]").forEach(countUp);
-});
-$("sheetClose").addEventListener("click", () => sheet.close());
-sheet.addEventListener("click", e => { if (e.target === sheet) sheet.close(); });
-sheet.addEventListener("close", () => lastOpener && lastOpener.focus());
-
-function countUp(el) {
-    const end = +el.dataset.count, pre = el.dataset.pre, suf = el.dataset.suf;
-    if (reduceMotion) return;
-    const t0 = performance.now(), dur = 1400;
-    const step = t => {
-        const k = Math.min((t - t0) / dur, 1);
-        el.textContent = pre + Math.round(end * (1 - Math.pow(1 - k, 3))) + suf;
-        if (k < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-}
-
-const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        en.target.classList.add("in");
-        en.target.querySelectorAll("[data-count]").forEach(countUp);
-        io.unobserve(en.target);
-    });
-}, { threshold: 0.15 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-/* Theme: follow the system unless the visitor picks one. */
-const root = document.documentElement, toggle = $("themeToggle");
-const isDark = () => (root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
-const syncToggle = () => toggle.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode");
-if (localStorage.getItem("theme")) root.dataset.theme = localStorage.getItem("theme");
-syncToggle();
-toggle.addEventListener("click", () => {
-    root.dataset.theme = isDark() ? "light" : "dark";
-    localStorage.setItem("theme", root.dataset.theme);
-    syncToggle();
-});
-
-/* Mobile menu */
-const menuBtn = $("menuBtn"), links = $("navLinks");
-menuBtn.addEventListener("click", () => {
-    const open = links.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open);
-    menuBtn.textContent = open ? "✕" : "☰";
-});
-links.addEventListener("click", e => {
-    if (e.target.tagName === "A") { links.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.textContent = "☰"; }
-});
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
