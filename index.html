@@ -86,50 +86,32 @@
         <div class="wrap section-head">
             <h2 class="section-title reveal">Selected work.</h2>
             <p class="section-sub reveal">Systems shipped to production, measured by what changed on the ground.</p>
-            <nav class="work-index reveal" aria-label="Featured projects">
-                <a class="tile index-card g1" href="#supervisor-agent"><p class="kicker">Agentic AI</p><h3>Supervisor-Agent AI System</h3><div class="grow"><div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div><p class="fig-label">hours/year of first-time-right production</p></div><span class="index-arrow" aria-hidden="true">↓</span></a>
-                <a class="tile index-card g2" href="#digital-twin"><p class="kicker">Simulation &amp; optimization</p><h3>Calcination Digital Twin</h3><div class="grow"><div class="fig g2">Daily</div><p class="fig-label">used by plant operators</p></div><span class="index-arrow" aria-hidden="true">↓</span></a>
-                <a class="tile index-card g3" href="#claims-engine"><p class="kicker">Fraud detection</p><h3>AI Claims Engine</h3><div class="grow"><div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div><p class="fig-label">less manual processing · 18% accuracy uplift</p></div><span class="index-arrow" aria-hidden="true">↓</span></a>
-                <a class="tile index-card g4" href="#hotspot-forecasting"><p class="kicker">Spatiotemporal ML</p><h3>Disease Hotspot Forecasting</h3><div class="grow"><div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div><p class="fig-label">business value generated</p></div><span class="index-arrow" aria-hidden="true">↓</span></a>
-            </nav>
-        </div>
-        <div id="bands">
-            <article class="band on-dark" id="supervisor-agent">
-                <div class="wrap">
-                    <p class="kicker reveal">Agentic AI</p>
-                    <h3 class="reveal">Supervisor-Agent AI System</h3>
-                    <p class="summary reveal">One agent that routes every plant question to the right tool, and remembers the answer.</p>
-                    <div class="tags reveal"><span class="tag">RAG</span><span class="tag">Vector Search</span><span class="tag">Genie Spaces</span><span class="tag">Lakebase memory</span></div>
-                    <button class="link" type="button" data-open="project:0" aria-haspopup="dialog">Learn more ›</button>
-                </div>
-            </article>
-            <article class="band alt" id="digital-twin">
-                <div class="wrap">
-                    <p class="kicker reveal">Simulation &amp; optimization</p>
-                    <h3 class="reveal">Calcination Digital Twin</h3>
-                    <p class="summary reveal">A virtual calciner that tries every trade-off first, so the real plant doesn't have to.</p>
-                    <div class="tags reveal"><span class="tag">Sensor fusion</span><span class="tag">ML models</span><span class="tag">Simulation</span><span class="tag">Multi-objective</span></div>
-                    <button class="link" type="button" data-open="project:1" aria-haspopup="dialog">Learn more ›</button>
-                </div>
-            </article>
-            <article class="band on-dark" id="claims-engine">
-                <div class="wrap">
-                    <p class="kicker reveal">Fraud detection</p>
-                    <h3 class="reveal">AI Claims Engine</h3>
-                    <p class="summary reveal">Flags suspicious insurance claims before an investigator has to dig.</p>
-                    <div class="tags reveal"><span class="tag">Fraud detection</span><span class="tag">Document understanding</span><span class="tag">End-to-end deployment</span></div>
-                    <button class="link" type="button" data-open="project:2" aria-haspopup="dialog">Learn more ›</button>
-                </div>
-            </article>
-            <article class="band alt" id="hotspot-forecasting">
-                <div class="wrap">
-                    <p class="kicker reveal">Spatiotemporal ML</p>
-                    <h3 class="reveal">Disease Hotspot Forecasting</h3>
-                    <p class="summary reveal">Multi-week risk forecasts that flag outbreaks before they happen.</p>
-                    <div class="tags reveal"><span class="tag">Geospatial</span><span class="tag">Time series</span><span class="tag">Feature engineering</span></div>
-                    <button class="link" type="button" data-open="project:3" aria-haspopup="dialog">Learn more ›</button>
-                </div>
-            </article>
+            <div class="work-index reveal">
+                <article class="tile openable index-card g1">
+                    <p class="kicker">Agentic AI</p>
+                    <h3>Supervisor-Agent AI System</h3>
+                    <div class="grow"><div class="fig g1"><span aria-hidden="true" data-count="400" data-pre="+" data-suf="">+400</span><span class="sr-only">+400</span></div><p class="fig-label">hours/year of first-time-right production</p></div>
+                    <button class="tile-open" type="button" data-open="project:0" aria-label="Open details: Supervisor-Agent AI System" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g2">
+                    <p class="kicker">Simulation &amp; optimization</p>
+                    <h3>Calcination Digital Twin</h3>
+                    <div class="grow"><div class="fig g2">Daily</div><p class="fig-label">used by plant operators</p></div>
+                    <button class="tile-open" type="button" data-open="project:1" aria-label="Open details: Calcination Digital Twin" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g3">
+                    <p class="kicker">Fraud detection</p>
+                    <h3>AI Claims Engine</h3>
+                    <div class="grow"><div class="fig g3"><span aria-hidden="true" data-count="40" data-pre="" data-suf="%">40%</span><span class="sr-only">40%</span></div><p class="fig-label">less manual processing · 18% accuracy uplift</p></div>
+                    <button class="tile-open" type="button" data-open="project:2" aria-label="Open details: AI Claims Engine" aria-haspopup="dialog">+</button>
+                </article>
+                <article class="tile openable index-card g4">
+                    <p class="kicker">Spatiotemporal ML</p>
+                    <h3>Disease Hotspot Forecasting</h3>
+                    <div class="grow"><div class="fig g4"><span aria-hidden="true" data-count="5" data-pre="₹" data-suf="M+">₹5M+</span><span class="sr-only">₹5M+</span></div><p class="fig-label">business value generated</p></div>
+                    <button class="tile-open" type="button" data-open="project:3" aria-label="Open details: Disease Hotspot Forecasting" aria-haspopup="dialog">+</button>
+                </article>
+            </div>
         </div>
     </section>
 
