@@ -8,7 +8,7 @@ Personal portfolio of a Forward Deployed Engineer building production agentic AI
 
 ## Highlights
 
-- Story-led intro with impact stats, followed by a bento grid of projects, experience and stack
+- Story-led intro and featured projects, followed by a bento grid of projects, experience and stack
 - Detail sheets built on the native `<dialog>` element, with focus returned to the opener on close
 - Light and dark themes that follow the system, with a manual toggle remembered across visits
 - Respects `prefers-reduced-motion`, `prefers-contrast` and `prefers-reduced-transparency`

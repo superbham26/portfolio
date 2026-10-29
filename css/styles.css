@@ -144,12 +144,6 @@ ul { list-style: none; }
 .hero .tagline { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); margin: 22px auto 0; max-width: 720px; }
 .hero .pitch { color: var(--text-2); max-width: 620px; margin: 18px auto 36px; }
 
-/* ---------- Story: stats ---------- */
-.stats { padding: clamp(64px, 9vw, 100px) 0; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 24px; text-align: center; }
-.stat .fig { font-size: clamp(44px, 6vw, 64px); }
-.stat p { color: var(--text-2); margin-top: 10px; }
-
 /* ---------- Section headings ---------- */
 .section-head { padding-block: clamp(80px, 11vw, 130px) clamp(48px, 6vw, 72px); }
 .section-title { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
@@ -289,7 +283,6 @@ html:not(.js) [data-open], html:not(.js) .nav-actions { display: none; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1068px) {
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .bento { grid-template-columns: repeat(2, 1fr); }
     .w4 { grid-column: span 2; }
 }
