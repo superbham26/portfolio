@@ -154,8 +154,6 @@ ul { list-style: none; }
 .band .kicker { font-size: 17px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; }
 .band h3 { font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.03em; line-height: 1.06; font-weight: 700; }
 .band .summary { font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2); max-width: 680px; margin: 16px auto 0; }
-.band .fig { font-size: clamp(88px, 16vw, 180px); margin-top: clamp(40px, 6vw, 64px); }
-.band .fig-label { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; margin-top: 12px; }
 .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
 .tag { font-size: 14px; padding: 6px 14px; border-radius: 980px; border: 1px solid var(--hair); color: var(--text-2); }
 .band .link { margin-top: 20px; }
@@ -163,7 +161,8 @@ ul { list-style: none; }
 /* ---------- Work index: jump links to the featured bands ---------- */
 #work .section-head { padding-top: 0; }
 .work-index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: clamp(32px, 5vw, 48px); }
-.tile.index-card { min-height: 170px; color: var(--text); }
+.tile.index-card { min-height: 230px; color: var(--text); }
+.index-card .fig-label { padding-right: 32px; }
 .tile.index-card:hover { text-decoration: none; transform: translateY(-4px); box-shadow: var(--lift); }
 .tile.index-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .index-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; }
@@ -171,7 +170,7 @@ ul { list-style: none; }
 .index-card.g2::before { background: var(--g2); }
 .index-card.g3::before { background: var(--g3); }
 .index-card.g4::before { background: var(--g4); }
-.index-arrow { margin-top: auto; padding-top: 20px; font-size: 22px; color: var(--text-2); transition: transform 0.35s ease; }
+.index-arrow { position: absolute; right: 24px; bottom: 22px; font-size: 22px; color: var(--text-2); transition: transform 0.35s ease; }
 .index-card:hover .index-arrow { transform: translateY(4px); }
 
 /* ---------- Bento body ---------- */
@@ -313,7 +312,10 @@ html:not(.js) [data-open], html:not(.js) .nav-actions { display: none; }
 
     .bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }
     .work-index { gap: 12px; }
-    .tile.index-card { min-height: 150px; }
+    .tile.index-card { min-height: 200px; padding: 20px; }
+    .index-card .fig { font-size: 32px; }
+    .index-arrow { display: none; }
+    .index-card .fig-label { padding-right: 0; font-size: 14px; }
     .index-card h3 { font-size: 19px; }
     .w2, .w4 { grid-column: span 1; }
     .h2 { grid-row: span 1; }
